@@ -1,0 +1,28 @@
+{
+  "name": "desafio-fcamara",
+  "version": "1.0.0",
+  "description": "Desafio da squad 37 para o Hackathon da FCamara.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielatferreira/desafio-fcamara.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrielatferreira/desafio-fcamara/issues"
+  },
+  "homepage": "https://github.com/gabrielatferreira/desafio-fcamara#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^4.1.1",
+    "mongoose": "^6.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
