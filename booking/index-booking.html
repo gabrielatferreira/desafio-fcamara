@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style-booking.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>AGENDAMENTO</h1>
+      <label for="dateofbooking">Data para Reserva</label>
+      <input type="date" name="dateofbooking" id="dateofbooking" />
+    </div>
+
+    <div class="unity-container">
+      <label> Escolha seu local:</label>
+      <select id="unity">
+        <option value="1">São Paulo</option>
+        <option value="2">Santos</option>
+      </select>
+    </div>
+
+    <ul class="showcase">
+      <li>
+        <div class="station"></div>
+        <small>Disponível</small>
+      </li>
+      <li>
+        <div class="station selected"></div>
+        <small>Selecionado</small>
+      </li>
+      <li>
+        <div class="station busy"></div>
+        <small>Ocupado</small>
+      </li>
+      <li>
+        <div class="station protocol"></div>
+        <small>Protocolo Distanciamento</small>
+      </li>
+    </ul>
+
+    <div class="card">
+      <div class="container">
+        <div class="row">
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+        </div>
+
+        <div class="row">
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station busy"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+        </div>
+        <br />
+        <br />
+
+        <div class="row">
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+        </div>
+
+        <div class="row">
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station busy"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+        </div>
+        <br />
+        <br />
+
+        <div class="row">
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+        </div>
+
+        <div class="row">
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station busy"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+        </div>
+        <br />
+        <br />
+
+        <div class="row">
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+        </div>
+
+        <div class="row">
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station busy"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+        </div>
+        <br />
+        <br />
+
+        <div class="row">
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+        </div>
+
+        <div class="row">
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station busy"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+          <div class="station protocol"></div>
+          <div class="station"></div>
+        </div>
+      </div>
+    </div>
+    <p class="text">Você selecionou <span id="count">0</span> Estação(es).</p>
+    <script src="script-booking.js"></script>
+  </body>
+</html>
