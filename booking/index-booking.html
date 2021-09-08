@@ -6,183 +6,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style-booking.css" />
     <title>Document</title>
+
+    <!-- Fonts-->
+    <link rel="stylesheet" href="style-booking.css" />
   </head>
   <body>
-    <div>
-      <h1>AGENDAMENTO</h1>
-      <label for="dateofbooking">Data para Reserva</label>
+    <header id="header">
+      <nav class="nav-container">
+        <a class="logo" href="#">orange<span>point</span>.</a>
+        <!-- menu -->
+        <div class="menu">
+          <ul class="grid">
+            <li><a class="title" href="#home">...</a></li>
+          </ul>
+        </div>
+        <!-- menu icons 
+        <div class="toggle icon-menu"></div>
+        <div class="toggle icon-close"></div>-->
+      </nav>
+    </header>
+
+    <div class="container">
+      <h1>Agendamento</h1>
+    </div>
+
+    <div class="container">
+      <p>Para qual unidade?</p>
+      <input type="radio" id="city-1" name="unity" value="city-1" checked />
+      <label for="huey">São Paulo</label>
+    </div>
+
+    <div class="container">
+      <input type="radio" id="city-2" name="unity" value="city-2" />
+      <label for="dewey">Santos</label>
+    </div>
+
+    <div class="container">
+      <p>Em qual data?</p>
       <input type="date" name="dateofbooking" id="dateofbooking" />
     </div>
 
-    <div class="unity-container">
-      <label> Escolha seu local:</label>
+    <div class="container">
+      <p>Em qual turno?</p>
       <select id="unity">
-        <option value="1">São Paulo</option>
-        <option value="2">Santos</option>
+        <option value="1">Manhã</option>
+        <option value="2">Tarde</option>
+        <option value="3">Manhã e Tarde</option>
       </select>
     </div>
 
-    <ul class="showcase">
-      <li>
-        <div class="station"></div>
-        <small>Disponível</small>
-      </li>
-      <li>
-        <div class="station selected"></div>
-        <small>Selecionado</small>
-      </li>
-      <li>
-        <div class="station busy"></div>
-        <small>Ocupado</small>
-      </li>
-      <li>
-        <div class="station protocol"></div>
-        <small>Protocolo Distanciamento</small>
-      </li>
-    </ul>
+    <div class="container">
+      <p>Para qual estação de trabalho?</p>
+    </div>
 
-    <div class="card">
-      <div class="container">
-        <div class="row">
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">
+            <strong>Estação A</strong> - Sala de Reunião
+          </h2>
+          <h3>6 pessoas</h3>
+          <h3>3 reservas</h3>
         </div>
+      </div>
 
-        <div class="row">
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station busy"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">
+            <strong>Estação B</strong> - Sala de Reunião
+          </h2>
+          <h3>12 pessoas</h3>
+          <h3>4 reservas</h3>
         </div>
-        <br />
-        <br />
+      </div>
 
-        <div class="row">
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-        </div>
-
-        <div class="row">
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station busy"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-        </div>
-        <br />
-        <br />
-
-        <div class="row">
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-        </div>
-
-        <div class="row">
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station busy"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-        </div>
-        <br />
-        <br />
-
-        <div class="row">
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-        </div>
-
-        <div class="row">
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station busy"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-        </div>
-        <br />
-        <br />
-
-        <div class="row">
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-        </div>
-
-        <div class="row">
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station busy"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
-          <div class="station protocol"></div>
-          <div class="station"></div>
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title"><strong>Estação C</strong> - Grande Sala</h2>
+          <h3>Individual</h3>
+          <h3>1 reserva</h3>
         </div>
       </div>
     </div>
-    <p class="text">Você selecionou <span id="count">0</span> Estação(es).</p>
+
+    <div class="container">
+      <p>Deseja realizar alguma solicitação de material?</p>
+      <textarea id="story" name="story" rows="5" cols="33"> </textarea>
+    </div>
+
     <script src="script-booking.js"></script>
   </body>
 </html>

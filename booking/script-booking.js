@@ -1,73 +1,49 @@
-const container = document.querySelector('.container')
-const stations = document.querySelector('.row .station:not(.busy)')
-//const count = document.getElementById('count')
-//const unitySelect = document.getElementById('unity')
+clickAndSelect()
 
-/*populateUI()
+function clickAndSelect() {
+  let cards = Array.from(document.querySelectorAll('.card')),
+    elements = []
 
-let booking = +unitySelect.value
+  // Add child nodes to clickable elements
+  cards.forEach(card => {
+    elements = elements.concat(Array.from(card.children))
+  })
 
-// Save selected unity index
-function setUnityData(unityIndex, unityValue) {
-  localStorage.setItem('selectedUnityIndex', unityIndex)
-  localStorage.setItem('slectedUnityValue', unityValue)
-}
+  // Attach to mouse events
+  elements.forEach(element => {
+    // click: Disable
+    element.addEventListener('click', e => e.preventDefault())
 
-// Update total and count
-function updateSelectedCount() {
-  const selectedStations = document.querySelectorAll('.row .station.selected')
-
-  const stationsIndex = [...selectedStations].map(station =>
-    [...stations].indexOf(station)
-  )
-
-  localStorage.setItem('selectedStations', JSON.stringify(stationsIndex))
-
-  const selectedStationsCount = selectedStations.length
-
-  count.innerText = selectedStationsCount
-  total.innerText = selectedStationsCount * unityValue
-
-  setUnityData(unitySelect.selectedIndex, unitySelect.value)
-}
-
-// Get data from localstorage and populate UI
-function populateUI() {
-  const selectedStations = JSON.parse(localStorage.getItem('selectedStations'))
-
-  if (selectedStations !== null && selectedStations.length > 0) {
-    stations.forEach((station, index) => {
-      if (selectedStations.indexOf(index) > -1) {
-        station.classList.add('selected')
-      }
+    // mousedown: Log the timestamp
+    element.addEventListener('mousedown', e => {
+      let card = e.target.closest('.card')
+      card.setAttribute('data-md', Date.now())
     })
-  }
 
-  const selectedUnityIndex = localStorage.getItem('selectedUnityIndex')
+    // mouseup: Determine whether to click
+    element.addEventListener('mouseup', e => {
+      // Only one please
+      e.stopPropagation()
 
-  if (selectedUnityIndex !== null) {
-    unitySelect.selectedIndex = selectedUnityIndex
-  }
+      let card = e.target.classList.contains('card')
+          ? e.target
+          : e.target.closest('.card'),
+        then = card.getAttribute('data-md'),
+        now = Date.now()
+
+      // Allow 200ms to distinguish click from non-click
+      if (now - then < 200) {
+        // Visit the link in the card
+        // Change 'a' to a class if you have multiple links
+        window.location = card.querySelector('a').href
+
+        // Remove for production
+        card.classList.add('visited')
+        console.log(card.querySelector('a').href)
+      }
+
+      // Clean up
+      card.removeAttribute('data-md')
+    })
+  })
 }
-
-// Unity select event
-unitySelect.addEventListener('change', e => {
-  booking = +e.target.value
-  setUnityData(e.target.selectedIndex, e.target.value)
-  updateSelectedCount()
-})*/
-
-// Station click event
-container.addEventListener('click', e => {
-  if (
-    e.target.classList.contains('station') &&
-    !e.target.classList.contains('busy')
-  ) {
-    e.target.classList.toggle('selected')
-
-    updateSelectedCount()
-  }
-})
-
-// Initial count and total set
-//updateSelectedCount()
