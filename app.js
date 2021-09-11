@@ -287,7 +287,7 @@ app.get("/reservas", [], async (req, res) => {
         return res.json(responseList);
     }
 
-    return res.json("Não há estações de trabalho cadastradas");
+    return res.json("Não há estações de trabalho cadastradas!");
 });
 
 app.get("/reservas/disponiveis", [], async (req, res) => {
@@ -296,22 +296,22 @@ app.get("/reservas/disponiveis", [], async (req, res) => {
         return res.json("necessários preencher uma data para reserva")
 
     if(!req.body.data_reserva.match("^[0-9]{2}[\\-][0-9]{2}[\\-][0-9]{4}$")) 
-        return res.json("Data nao está no padrão esperado dd-mm-yyyy") 
+        return res.json("Data nao está no padrão esperado dd-mm-yyyy!") 
 
     var dataHoje = new Date
     var dataDetalhe = req.body.data_reserva.split("-");
 
     if(dataDetalhe[2] < dataHoje.getYear())
-        return res.json("necessários preencher uma data para reserva no ano corrente em diante")
+        return res.json("Preencha uma data para reserva do ano corrente em diante!")
 
     if(dataDetalhe[1] < dataHoje.getMonth() && dataDetalhe[2] === dataHoje.getYear())
-        return res.json("necessários preencher uma data para reserva no mês corrente em diante")
+        return res.json("Preencha uma data para reserva do mês corrente em diante!")
 
     if(dataDetalhe[0] < dataHoje.getDate() && dataDetalhe[1] < dataHoje.getMonth() && dataDetalhe[2] === dataHoje.getYear)
-        return res.json("necessários preencher uma data para reserva no dia corrente em diante")
+        return res.json("Preencha uma data para reserva do dia corrente em diante!")
 
     if(req.body.id_unidade_negocio === null || req.body.id_unidade_negocio === undefined || req.body.id_unidade_negocio === "")
-        return res.json("necessários preencher id da unidade de negocio")
+        return res.json("Preencha id da unidade de negocio!")
     
     await mongoose.connect(uri, { useNewUrlParser: true });
 
@@ -346,7 +346,7 @@ app.get("/reservas/disponiveis", [], async (req, res) => {
 app.get("/reservas/:id_usuario", [], async (req, res) => {
 
     if(req.params.id_usuario === null || req.params.id_usuario === undefined || req.params.id_usuario === "")
-        return res.json("necessários preencher id do usuario")
+        return res.json("Preencha o id do usuario")
     
     await mongoose.connect(uri, { useNewUrlParser: true });
 
@@ -370,13 +370,13 @@ app.get("/reservas/:id_usuario", [], async (req, res) => {
         return res.json(responseList);
     }
 
-    return res.json("Não há estações de trabalho cadastradas");
+    return res.json("Não há estações de trabalho cadastradas!");
 });
 
 app.post("/reservas", [], async (req, res) => {
 
     if(req.body.data_reserva === null || req.body.data_reserva === undefined || req.body.data_reserva === "")
-        return res.json("Preencha uma data para fazer sua reserva")
+        return res.json("Preencha uma data para fazer sua reserva!")
 
     if(!req.body.data_reserva.match("^[0-9]{2}[\\-][0-9]{2}[\\-][0-9]{4}$")) 
         return res.json("Data nao está no padrão esperado dd-mm-yyyy") 
@@ -403,7 +403,7 @@ app.post("/reservas", [], async (req, res) => {
         return res.json("Preencha o campo turno!")
 
         if(req.body.turno !== "manha" && req.body.turno !== "tarde" && req.body.turno !== "integral")
-        return res.json("Preencher o turno com um dos valores: manha, tarde ou integral")
+        return res.json("Preencha um dos turnos: manhã, tarde ou integral")
 
     if(req.body.id_usuario === null || req.body.id_usuario === undefined || req.body.id_usuario === "")
         return res.json("Preencha um usuário")
@@ -493,37 +493,34 @@ app.post("/reservas", [], async (req, res) => {
 app.delete("/reservas", [], async (req, res) => {
 
     if(req.body.data_reserva === null || req.body.data_reserva === undefined || req.body.data_reserva === "")
-        return res.json("necessários preencher uma data para reserva")
+        return res.json("Preencha uma data para a reserva!")
 
     if(!req.body.data_reserva.match("^[0-9]{2}[\\-][0-9]{2}[\\-][0-9]{4}$")) 
-        return res.json("Data nao está no padrão esperado dd-mm-yyyy") 
+        return res.json("Data nao está no padrão esperado dd-mm-yyyy!") 
 
     var dataHoje = new Date
     var dataDetalhe = req.body.data_reserva.split("-");
 
     if(dataDetalhe[2] < dataHoje.getYear())
-        return res.json("necessários preencher uma data para reserva no ano corrente em diante")
+        return res.json("Preencha uma data para reserva do ano corrente em diante!")
 
     if(dataDetalhe[1] < dataHoje.getMonth() && dataDetalhe[2] === dataHoje.getYear())
-        return res.json("necessários preencher uma data para reserva no mês corrente em diante")
+        return res.json("Preencha uma data para reserva do mês corrente em diante!")
 
     if(dataDetalhe[0] < dataHoje.getDate() && dataDetalhe[1] < dataHoje.getMonth() && dataDetalhe[2] === dataHoje.getYear)
-        return res.json("necessários preencher uma data para reserva no dia corrente em diante")
+        return res.json("Preencha uma data para reserva do dia corrente em diante!")
 
     if(req.body.id_unidade_negocio === null || req.body.id_unidade_negocio === undefined || req.body.id_unidade_negocio === "")
-        return res.json("necessários preencher id da unidade de negocio")
+        return res.json("Preencha o id da unidade de negócio!")
 
     if(req.body.id_estacao_trabalho === null || req.body.id_estacao_trabalho === undefined || req.body.id_estacao_trabalho === "")
-        return res.json("necessários preencher id da estacao de trabalho")
-    
-    if(req.body.id_usuario === null || req.body.id_estacao_trabalho === undefined || req.body.id_estacao_trabalho === "")
-        return res.json("necessários preencher id da estacao de trabalho")
+        return res.json("Preencha o id da estação de trabalho!")
 
     if(req.body.turno === null || req.body.turno === undefined || req.body.turno === "")
-        return res.json("necessários preencher id do turno")
+        return res.json("Preencha o id do turno!")
 
     if(req.body.id_usuario === null || req.body.id_usuario === undefined || req.body.id_usuario === "")
-        return res.json("necessários preencher id do usuario")
+        return res.json("Preencha o id do usuario!")
 
     await mongoose.connect(uri, { useNewUrlParser: true });
 
@@ -540,7 +537,7 @@ app.delete("/reservas", [], async (req, res) => {
         requisicao_material: reservas.requisicao_material,
         data_reserva: reservas.data_reserva,
         turno: reservas.turno,
-        message: "Sua reserva foi deletada!"
+        message: "Sua reserva foi excluída!"
     }
 
     return res.json(response)
@@ -549,40 +546,40 @@ app.delete("/reservas", [], async (req, res) => {
 app.put("/reservas", [], async (req, res) => {
 
     if(req.body.data_reserva === null || req.body.data_reserva === undefined || req.body.data_reserva === "")
-        return res.json("necessários preencher uma data para reserva")
+        return res.json("Preencha uma data!")
 
     if(!req.body.data_reserva.match("^[0-9]{2}[\\-][0-9]{2}[\\-][0-9]{4}$")) 
-        return res.json("Data nao está no padrão esperado dd-mm-yyyy") 
+        return res.json("Data nao está no padrão esperado dd-mm-yyyy!") 
 
     var dataHoje = new Date
     var dataDetalhe = req.body.data_reserva.split("-");
 
     if(dataDetalhe[2] < dataHoje.getYear())
-        return res.json("necessários preencher uma data para reserva no ano corrente em diante")
+        return res.json("Preencha uma data do ano corrente em diante!")
 
     if(dataDetalhe[1] < dataHoje.getMonth() && dataDetalhe[2] === dataHoje.getYear())
-        return res.json("necessários preencher uma data para reserva no mês corrente em diante")
+        return res.json("Preencha uma data do mês corrente em diante!")
 
     if(dataDetalhe[0] < dataHoje.getDate() && dataDetalhe[1] < dataHoje.getMonth() && dataDetalhe[2] === dataHoje.getYear)
-        return res.json("necessários preencher uma data para reserva no dia corrente em diante")
+        return res.json("Preencha uma data do dia corrente em diante!")
 
     if(req.body.id_unidade_negocio === null || req.body.id_unidade_negocio === undefined || req.body.id_unidade_negocio === "")
-        return res.json("necessários preencher id da unidade de negocio")
+        return res.json("Preencha o id da unidade de negócio!")
 
     if(req.body.id_estacao_trabalho === null || req.body.id_estacao_trabalho === undefined || req.body.id_estacao_trabalho === "")
-        return res.json("necessários preencher id da estacao de trabalho")
+        return res.json("Preencha o id da estação de trabalho!")
 
     if(req.body.turno === null || req.body.turno === undefined || req.body.turno === "")
-        return res.json("necessários preencher turno")
+        return res.json("Preencha o turno!")
 
     if(req.body.turno !== "manha" && req.body.turno !== "tarde" && req.body.turno !== "integral")
-        return res.json("necessários preencher o turno com um dos valores, tarde, manha, integral")
+        return res.json("Preencha um dos turnos: manhã, tarde ou integral!")
 
     if(req.body.id_usuario === null || req.body.id_usuario === undefined || req.body.id_usuario === "")
-        return res.json("necessários preencher id do usuario")
+        return res.json("Preencha o id do usuario!")
 
     if(req.body.id_reserva === null || req.body.id_reserva === undefined || req.body.id_reserva === "")
-        return res.json("necessários preencher id da reserva")
+        return res.json("Preencha o id da reserva!")
 
     await mongoose.connect(uri, { useNewUrlParser: true });
 
@@ -616,7 +613,7 @@ app.put("/reservas", [], async (req, res) => {
 
     console.log("quantidade de lugares " + quantidade_de_lugares)
     if(quantidade_de_lugares == null || quantidade_de_lugares == undefined || quantidade_de_lugares == 0) {
-        return res.json("não é possível atualizar a reserva pois não foi informado a quantidade de lugares nesta estação")
+        return res.json("Não é possível atualizar a reserva, pois não foi informado a quantidade de lugares nesta estação!")
     }
     let quantidade_turno = parseInt(quantidade_manha) > parseInt(quantidade_tarde) ? parseInt(quantidade_manha) : parseInt(quantidade_tarde);
     console.log("quantidade_turno " + quantidade_turno)
@@ -630,10 +627,10 @@ app.put("/reservas", [], async (req, res) => {
     console.log("quantidade disponibilidade tarde " + disponibilidade_manha);
 
     if(disponibilidade_integral <= 0 && disponibilidade_manha <= 0 && disponibilidade_tarde <= 0) {
-        return res.json("Não há disponibilidade para atualizar a reserva para neste dia!")
+        return res.json("Não há disponibilidade para atualizar a reserva neste dia!")
     } 
     if(disponibilidade_integral <= 0 && req.body.turno == 'integral') {
-       return res.json("Não há disponibilidade para atualizar a reserva para o dia inteiro, veja disponiblidade no turno manha ou tarde!")
+       return res.json("Não há disponibilidade para atualizar a reserva para o dia inteiro, veja disponiblidade no turno manhã ou tarde!")
     } 
     if(req.body.turno == 'manha' && disponibilidade_manha == 0) {
         return res.json("Não há disponibilidade para atualizar a reserva para a parte da manhã!")
