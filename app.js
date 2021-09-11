@@ -1,4 +1,4 @@
-const cors = require('cors')
+const cors = require('cors');
 const express = require('express');
 const { body, check } = require('express-validator');
 const mongoose = require('mongoose');
