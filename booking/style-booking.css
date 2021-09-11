@@ -33,6 +33,9 @@ img {
   --text-color-light: hsl(240 0% 58%);
   --body-color: hsl(0 0% 98%);
   --body-color-light: hsl(230 1% 90%);
+  --button-color: hsl(240 22% 95%);
+  --button-color-hover: hsl(100%, 50%);
+  --card-background: hsl(240, 22%, 95%);
 
   /* fonts */
   --title-font-size: 2rem;
@@ -43,6 +46,8 @@ img {
 
   --body-font: 'Metropolis';
 }
+
+/*======= FONTS ============================*/
 
 @font-face {
   font-family: 'metropolis';
@@ -76,74 +81,162 @@ body {
   color: var(--text-color);
   background: var(--body-color);
   -webkit-font-smoothing: antialiased;
-  margin-top: 128px;
+  margin-top: 8rem;
 }
 
 h1 {
   font: 700 var(--subtitle-font-size) var(--body-font);
   color: var(--title-color);
   text-align: center;
-  margin-bottom: 51px;
+  margin-bottom: 3.1875rem;
 }
 
 h2 {
-  font: 400 var(--label-font-size) var(--body-font);
+  font: 600 var(--label-font-size) var(--body-font);
   color: var(--text-color-light);
-}
-
-h3 {
-  font: 400 var(--input-font-size) var(--body-font);
-  color: var(--text-color-light);
+  margin-bottom: 0.2rem;
+  line-height: 1.5rem;
 }
 
 p {
   font: 700 var(--body-font-size) var(--body-font);
   color: var(--text-color);
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 }
 
 label {
-  font: 400 var(--label-font-size) var(--body-font);
+  font: 400 var(--input-font-size) var(--body-font);
   color: var(--text-color-light);
+}
+
+span {
+  font: 400 var(--input-font-size) var(--body-font);
 }
 
 .title {
   font: 700 var(--title-font-size) var(--title-font);
-  color: var(--title-color);
+  color: var(--text-color);
   -webkit-font-smoothing: auto;
 }
 
+input [type='radio']::after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input [type='radio']:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #ff4400;
+  color: #ff4400;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
 /* Datepicker*/
-[type='date'] {
-  background: #fff
-    url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)
-    97% 50% no-repeat;
+
+input[type='date'] {
+  background: var(--body-color);
+  position: relative;
+  color: var(--text-color-light);
+  border-radius: 0.5rem;
+  border-color: var(--body-color-light);
+  border-width: 1px;
+  font: 400 var(--input-font-size) var(--body-font);
+  height: 3rem;
+  padding: 0.1875rem;
+  width: 8.5rem;
 }
-[type='date']::-webkit-inner-spin-button {
-  display: none;
+
+/* create a new arrow, because we are going to mess up the native one
+see "List of symbols" below if you want another, you could also try to add a font-awesome icon.. */
+input[type='date']:after {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f073';
+  color: #555;
+  padding: 0 5px;
 }
-[type='date']::-webkit-calendar-picker-indicator {
-  opacity: 0;
+
+/* change color of symbol on hover */
+input[type='date']:hover:after {
+  color: var(--base-color);
+}
+
+/* make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker*/
+input[type='date']::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  color: transparent;
+  background: transparent;
+}
+
+/* adjust increase/decrease button */
+input[type='date']::-webkit-inner-spin-button {
+  z-index: 1;
+}
+
+/* adjust clear button */
+input[type='date']::-webkit-clear-button {
+  z-index: 1;
+}
+
+.button {
+  max-width: 24rem;
+  background-color: var(--button-color);
+  color: var(--text-color-light);
+  height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+  font: 400 var(--body-font-size) var(--body-font);
+  border-radius: 10px;
+  border-color: var(--body-color-light);
+  border-width: 1px;
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background-color: rgba(254, 68, 0, 1);
+  color: var(--body-color);
+}
+
+.button:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+    inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
 
 /*======= LAYOUT ========*/
 
-#header {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 2rem;
-  display: flex;
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  background-color: var(--body-color);
-  width: 100%;
+.logo {
+  font: 400 var(--body-font-size) var(--body-font);
+  color: var(--title-color);
 }
 
-.logo {
-  font: 400 var(--label-font-size) var(--body-font);
-  color: var(--title-color);
+.logo strong {
+  font: 900 var(--body-font-size) var(--body-font);
 }
 
 .nav-container {
@@ -159,27 +252,96 @@ label {
 
 .grid {
   display: grid;
-  gap: 2rem;
-}
-
-.cards {
-  display: grid;
-  margin-right: 2rem;
-  margin-left: 2rem;
+  gap: 1.5rem;
 }
 
 .card {
   display: flex;
-  margin-bottom: 24px;
+  flex-direction: column;
+  max-width: 24rem;
+  margin-bottom: 1.5rem;
   background: var(--body-color);
-  border-radius: 8px;
-  height: 72px;
-  padding: 16px;
+  border-radius: 0.5rem;
+  height: 4.5rem;
+  padding: 1rem;
   border-color: var(--body-color-light);
   border-style: solid;
   border-width: 1px;
   cursor: pointer;
+  /*box-shadow: 0 3px 10px 0 #aaa;*/
+}
+
+.card:hover {
   box-shadow: 0 3px 10px 0 #aaa;
+  border-color: rgba(148, 148, 149, 1);
+}
+
+.card:active {
+  background-color: var(--card-background);
+  border: none;
+}
+
+.type-label {
+  display: inline;
+  margin-right: 20px;
+  color: var(--text-color-light);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.col {
+  flex: 1;
+  display: block;
+}
+
+.icon-Size-32px {
+  color: var(--base-color);
+}
+
+#unity {
+  height: 3rem;
+  width: 8.5rem;
+  border-radius: 0.5rem;
+  border-color: var(--body-color-light);
+  font: 400 var(--input-font-size) var(--body-font);
+  color: var(--text-color-light);
+  background: var(--body-color);
+}
+
+textarea {
+  max-width: 24rem;
+  background: var(--body-color);
+  border-width: 1px;
+  border-radius: 0.5rem;
+  border-color: var(--body-color-light);
+  font: 400 var(--input-font-size) var(--body-font);
+  color: var(--text-color-light);
+  width: 100%;
+  height: 5rem;
+  padding: 1rem;
+}
+
+#header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 2rem;
+  display: flex;
+  height: var(--header-height);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: var(--body-color);
+  width: 100%;
+}
+
+#header.scroll {
+  /*quando quiser mudar a cor durante scroll*/
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
 }
 
 /*=========  NAVIGATION  ========= */
@@ -195,6 +357,11 @@ nav ul li {
   text-align: center;
 }
 
+nav ul li a {
+  transition: color 0.2s;
+  position: relative;
+}
+
 nav ul li a:hover,
 nav ul li a.active {
   color: var(--base-color);
@@ -208,7 +375,7 @@ nav ul li a::after {
 
   position: absolute;
   left: 0;
-  bottom: -1.5rem;
+  bottom: -1rem;
 
   transition: width 0.2s;
 }
@@ -218,7 +385,7 @@ nav ul li a.active:hover {
   width: 100%;
 }
 
-/*nav .menu {
+nav .menu {
   opacity: 0;
   visibility: hidden;
   top: -20rem;
@@ -229,7 +396,7 @@ nav .menu ul {
   display: none;
 }
 
- Mostrar Menu
+/* Mostrar Menu*/
 nav.show .menu {
   opacity: 1;
   visibility: visible;
@@ -237,11 +404,11 @@ nav.show .menu {
   background: var(--body-color);
 
   height: 100vh;
-  width: 100vw;
+  width: 70%;
 
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
 
   display: grid;
   place-content: center;
@@ -252,29 +419,104 @@ nav.show .menu ul {
 }
 
 nav.show ul.grid {
-  gap: 4rem;
+  gap: 2rem;
 }
 
-  //toggle menu //
+/* toggle menu */
 .toggle {
   color: var(--base-color);
   font-size: 1.5rem;
   cursor: pointer;
 }
 
-nav .icon-close {
+nav .icon-TypeX {
   visibility: hidden;
   opacity: 0;
 
   position: absolute;
-  top: -1.5rem;
-  right: 1.5rem;
+  top: -1.7rem;
+  right: 1.7rem;
 
   transition: 0.2s;
 }
 
-nav.show div.icon-close {
+nav.show div.icon-TypeX {
   visibility: visible;
   opacity: 1;
-  top: 1.5rem;
-}*/
+  top: 1.7rem;
+}
+
+/*======== Section =========*/
+
+.col {
+  display: flex;
+}
+
+/* Responsive */
+/*========= MEDIA QUERIES ======================*/
+/* extra large devices: 1200 > */
+@media (min-width: 1200px) {
+  /* reusable classes */
+  .container {
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cards {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1120px;
+  }
+
+  .section {
+    padding: 10rem 0;
+  }
+
+  .section header,
+  #testimonials header {
+    max-width: 32rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .button {
+    height: 3.125rem;
+  }
+
+  /* navigation */
+  nav .menu {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
+
+  nav .menu ul {
+    display: flex;
+    gap: 2rem;
+  }
+
+  nav .menu ul li a.title {
+    font: 400 1rem var(--body-font);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav .menu ul li a.title.active {
+    font-weight: bold;
+    -webkit-font-smoothing: auto;
+  }
+
+  nav .icon-TypeMenu {
+    display: none;
+  }
+}
+
+/* large devices: 1023 > */
+/* large devices: 992 > */
+@media (min-width: 992px) {
+  :root {
+    --title-font-size: 2.25rem;
+    --subtitle-font-size: 1.125rem;
+  }
+}

@@ -1,49 +1,55 @@
-clickAndSelect()
+/* abre e fecha o menu quando clicar no icone: hamburger e X */
+const nav = document.querySelector('#header nav')
+const toggle = document.querySelectorAll('nav .toggle')
 
-function clickAndSelect() {
-  let cards = Array.from(document.querySelectorAll('.card')),
-    elements = []
-
-  // Add child nodes to clickable elements
-  cards.forEach(card => {
-    elements = elements.concat(Array.from(card.children))
+for (const element of toggle) {
+  element.addEventListener('click', function () {
+    nav.classList.toggle('show')
   })
+}
 
-  // Attach to mouse events
-  elements.forEach(element => {
-    // click: Disable
-    element.addEventListener('click', e => e.preventDefault())
+/* quando clicar em um item do menu, esconder o menu */
+const links = document.querySelectorAll('nav ul li a')
 
-    // mousedown: Log the timestamp
-    element.addEventListener('mousedown', e => {
-      let card = e.target.closest('.card')
-      card.setAttribute('data-md', Date.now())
-    })
-
-    // mouseup: Determine whether to click
-    element.addEventListener('mouseup', e => {
-      // Only one please
-      e.stopPropagation()
-
-      let card = e.target.classList.contains('card')
-          ? e.target
-          : e.target.closest('.card'),
-        then = card.getAttribute('data-md'),
-        now = Date.now()
-
-      // Allow 200ms to distinguish click from non-click
-      if (now - then < 200) {
-        // Visit the link in the card
-        // Change 'a' to a class if you have multiple links
-        window.location = card.querySelector('a').href
-
-        // Remove for production
-        card.classList.add('visited')
-        console.log(card.querySelector('a').href)
-      }
-
-      // Clean up
-      card.removeAttribute('data-md')
-    })
+for (const link of links) {
+  link.addEventListener('click', function () {
+    nav.classList.remove('show')
   })
+}
+
+/* mudar o header da página quando der scroll */
+const header = document.querySelector('#header')
+const navHeight = header.offsetHeight
+
+function changeHeaderWhenScrool() {
+  if (window.scrollY >= navHeight) {
+    // scroll é maior que a altura do header
+    header.classList.add('scroll')
+  } else {
+    // menor que a altura do header
+    header.classList.remove('scroll')
+  }
+}
+
+/* When Scroll */
+window.addEventListener('scroll', function () {
+  changeHeaderWhenScrool()
+})
+
+/* Button Animation */
+var animateButton = function (e) {
+  e.preventDefault
+  //reset animation
+  e.target.classList.remove('animate')
+
+  e.target.classList.add('animate')
+  setTimeout(function () {
+    e.target.classList.remove('animate')
+  }, 700)
+}
+
+var bubblyButtons = document.getElementsByClassName('bubbly-button')
+
+for (var i = 0; i < bubblyButtons.length; i++) {
+  bubblyButtons[i].addEventListener('click', animateButton, false)
 }
