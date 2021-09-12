@@ -1,24 +1,265 @@
+/*======= RESET ============================*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*======= VARIABLES ============================*/
+:root {
+  --header-height: 5rem;
+
+  /* colors */
+  --hue: 16;
+  /* HSL color mode */
+  --base-color: hsl(var(--hue) 100% 50%);
+  --base-color-second: hsl(var(--hue) 99% 58%);
+  --base-color-alt: hsl(var(--hue) 99% 68%);
+  --title-color: hsl(var(--hue) 100% 50%);
+  --text-color: hsl(240 1% 29%);
+  --text-color-light: hsl(240 0% 58%);
+  --body-color: hsl(0 0% 98%);
+  --body-color-light: hsl(230 1% 90%);
+  --button-color: hsl(240 22% 95%);
+  --button-color-hover: hsl(100%, 50%);
+  --card-background: hsl(240, 22%, 95%);
+  --label-color: hsl(240, 1%, 29%);
+  --input-color: hsl(240, 0%, 58%);
+
+  /* fonts */
+  --title-font-size: 2rem;
+  --subtitle-font-size: 1.125rem;
+  --label-font-size: 0.875rem;
+  --input-font-size: 0.75rem;
+  --body-font-size: 1rem;
+
+  --body-font: 'Metropolis';
+}
+
+/*======= FONTS ============================*/
+
+@font-face {
+  font-family: 'metropolis';
+  src: url(../assets/fonts/Metropolis-Regular.otf);
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'metropolis';
+  src: url(../assets/fonts/Metropolis-SemiBold.otf);
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'metropolis';
+  src: url(../assets/fonts/Metropolis-Bold.otf);
+  font-style: normal;
+  font-weight: 700;
+}
+
+/*========= BASE ========*/
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-
+  font: 400 var(--body-font-size) var(--body-font);
+  color: var(--text-color);
+  background: var(--body-color);
+  -webkit-font-smoothing: antialiased;
+  margin-top: 8rem;
 }
 
-#login-container {
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%,-50%);
-   padding: 16px;
-   border: 1px solid #000;
+h1 {
+  font: 700 var(--title-font-size) var(--body-font);
+  color: var(--title-color);
+  text-align: left;
+  margin-bottom: 3.1875rem;
 }
 
-#email, #password {
-    border: 1px solid #000;
+p {
+  font: 700 var(--body-font-size) var(--body-font);
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+label {
+  font: 600 var(--label-font-size) var(--body-font);
+  color: var(--label-color);
+}
+
+span {
+  font: 400 var(--input-font-size) var(--body-font);
 }
 
 button {
-    width: 100%;
+  max-width: 24rem;
+  background-color: var(--button-color);
+  color: var(--text-color-light);
+  height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+  font: 400 var(--body-font-size) var(--body-font);
+  border-radius: 10px;
+  border-color: var(--body-color-light);
+  border-width: 1px;
+  transition: background 0.3s;
+}
+
+input {
+  width: 100%;
+  height: 3rem;
+  padding: 1rem;
+  max-width: 24rem;
+  font: 400 var(--label-font-size) var(--body-font);
+  color: var(--input-color);
+  background-color: var(--body-color);
+  border-radius: 10px;
+  border-color: var(--body-color-light);
+  border-width: 1px;
+}
+
+button:hover {
+  background-color: rgba(254, 68, 0, 1);
+  color: var(--body-color);
+}
+
+button:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+    inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
 
 #links {
+  text-align: center;
+}
+
+#links .forgot-password {
+  text-decoration: underline;
+  font: 700 var(--label-font-size) var(--body-font);
+  color: var(--label-color);
+}
+
+#first-acess {
+  text-align: center;
+  display: flex;
+}
+
+.create-account {
+  font: 400 var(--label-font-size) var(--body-font);
+  color: var(--label-color);
+}
+
+.create-account span {
+  font: 400 var(--label-font-size) var(--body-font);
+  color: var(--base-color);
+}
+
+/*======= LAYOUT ========*/
+
+.logo {
+  font: 400 var(--body-font-size) var(--body-font);
+  color: var(--title-color);
+}
+
+.logo strong {
+  font: 900 var(--body-font-size) var(--body-font);
+}
+
+.container {
+  margin-right: 2rem;
+  margin-left: 2rem;
+  margin-bottom: 32px;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.icon-Size-32px {
+  color: var(--base-color);
+  margin-right: 7px;
+}
+
+#header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 2rem;
+  display: flex;
+  height: var(--header-height);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: var(--body-color);
+  width: 100%;
+}
+
+#header.scroll {
+  /*quando quiser mudar a cor durante scroll*/
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+}
+
+/*=========  NAVIGATION  ========= */
+nav {
+  height: var(--header-height);
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Responsive */
+/*========= MEDIA QUERIES ======================*/
+/* extra large devices: 1200 > */
+@media (min-width: 1200px) {
+  /* reusable classes */
+  .container {
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cards {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1120px;
+  }
+
+  .section {
+    padding: 10rem 0;
+  }
+
+  .section header,
+  #testimonials header {
+    max-width: 32rem;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  button {
+    height: 3.125rem;
+  }
+}
+
+/* large devices: 1023 > */
+/* large devices: 992 > */
+@media (min-width: 992px) {
+  :root {
+    --title-font-size: 2.25rem;
+    --subtitle-font-size: 1.125rem;
+  }
 }

@@ -84,14 +84,14 @@ body {
   margin-top: 8rem;
 }
 
-h1 {
+h2 {
   font: 700 var(--subtitle-font-size) var(--body-font);
   color: var(--title-color);
   text-align: center;
   margin-bottom: 3.1875rem;
 }
 
-h2 {
+h3 {
   font: 600 var(--label-font-size) var(--body-font);
   color: var(--text-color-light);
   margin-bottom: 0.2rem;
@@ -119,40 +119,10 @@ span {
   -webkit-font-smoothing: auto;
 }
 
-input [type='radio']::after {
-  width: 15px;
-  height: 15px;
-  border-radius: 15px;
-  top: -2px;
-  left: -1px;
-  position: relative;
-  background-color: #d1d3d1;
-  content: '';
-  display: inline-block;
-  visibility: visible;
-  border: 2px solid white;
-}
-
-input [type='radio']:checked:after {
-  width: 15px;
-  height: 15px;
-  border-radius: 15px;
-  top: -2px;
-  left: -1px;
-  position: relative;
-  background-color: #ff4400;
-  color: #ff4400;
-  content: '';
-  display: inline-block;
-  visibility: visible;
-  border: 2px solid white;
-}
-
 /* Datepicker*/
 
 input[type='date'] {
   background: var(--body-color);
-  position: relative;
   color: var(--text-color-light);
   border-radius: 0.5rem;
   border-color: var(--body-color-light);
@@ -160,17 +130,17 @@ input[type='date'] {
   font: 400 var(--input-font-size) var(--body-font);
   height: 3rem;
   padding: 0.1875rem;
-  width: 8.5rem;
+  max-width: 24rem;
 }
 
 /* create a new arrow, because we are going to mess up the native one
 see "List of symbols" below if you want another, you could also try to add a font-awesome icon.. */
 input[type='date']:after {
-  font-family: 'Font Awesome 5 Free';
+  font-family: 'Metropolis';
   font-weight: 900;
-  content: '\f073';
-  color: #555;
-  padding: 0 5px;
+  content: '\e907';
+  color: var(--text-color-light);
+  width: 32px;
 }
 
 /* change color of symbol on hover */
@@ -185,7 +155,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
   left: 0;
   right: 0;
   bottom: 0;
-  width: auto;
+  width: 8rem;
   height: auto;
   color: transparent;
   background: transparent;
@@ -201,7 +171,7 @@ input[type='date']::-webkit-clear-button {
   z-index: 1;
 }
 
-.button {
+button {
   max-width: 24rem;
   background-color: var(--button-color);
   color: var(--text-color-light);
@@ -218,12 +188,12 @@ input[type='date']::-webkit-clear-button {
   transition: background 0.3s;
 }
 
-.button:hover {
+button:hover {
   background-color: rgba(254, 68, 0, 1);
   color: var(--body-color);
 }
 
-.button:active {
+button:active {
   box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
     inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
@@ -302,9 +272,9 @@ input[type='date']::-webkit-clear-button {
   color: var(--base-color);
 }
 
-#unity {
+.container select {
   height: 3rem;
-  width: 8.5rem;
+  max-width: 24rem;
   border-radius: 0.5rem;
   border-color: var(--body-color-light);
   font: 400 var(--input-font-size) var(--body-font);
@@ -481,7 +451,7 @@ nav.show div.icon-TypeX {
     margin-right: auto;
   }
 
-  .button {
+  button {
     height: 3.125rem;
   }
 
