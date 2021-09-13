@@ -5,10 +5,6 @@
   box-sizing: border-box;
 }
 
-ul {
-  list-style: none;
-}
-
 a {
   text-decoration: none;
 }
@@ -47,6 +43,8 @@ img {
   --body-font-size: 1rem;
 
   --body-font: 'Metropolis';
+  --body-font-semibold: 'Metropolis-semibold';
+  --body-font-bold: 'Metropolis-bold';
 }
 
 /*======= FONTS ============================*/
@@ -59,14 +57,14 @@ img {
 }
 
 @font-face {
-  font-family: 'metropolis';
+  font-family: 'metropolis-semibold';
   src: url(../assets/fonts/Metropolis-SemiBold.otf);
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 @font-face {
-  font-family: 'metropolis';
+  font-family: 'metropolis-bold';
   src: url(../assets/fonts/Metropolis-Bold.otf);
   font-style: normal;
   font-weight: 700;
@@ -79,8 +77,6 @@ html {
 }
 
 body {
-  display: flex;
-  justify-content: space-evenly;
   font: 400 var(--body-font-size) var(--body-font);
   color: var(--text-color);
   background: var(--body-color);
@@ -89,7 +85,7 @@ body {
 }
 
 h1 {
-  font: 700 var(--title-font-size) var(--body-font);
+  font: 700 var(--title-font-size) var(--body-font-bold);
   color: var(--title-color);
   text-align: left;
   margin-bottom: 3.1875rem;
@@ -106,8 +102,9 @@ p {
 }
 
 label {
-  font: 600 var(--label-font-size) var(--body-font);
+  font: 600 var(--label-font-size) var(--body-font-semibold);
   color: var(--label-color);
+  padding: 0px 0px 10px 0px;
 }
 
 span {
@@ -124,7 +121,7 @@ button {
   justify-content: center;
   width: 100%;
   padding: 1rem;
-  font: 400 var(--body-font-size) var(--body-font);
+  font: 400 var(--body-font-size) var(--body-font-bold);
   border-radius: 10px;
   border-color: var(--body-color-light);
   border-width: 1px;
@@ -142,6 +139,7 @@ input {
   border-radius: 10px;
   border-color: var(--body-color-light);
   border-width: 1px;
+  margin-top: 0.5rem;
 }
 
 button:hover {
@@ -158,27 +156,19 @@ button:active {
   text-align: center;
   display: block;
   text-decoration: underline;
-  font: 700 var(--label-font-size) var(--body-font);
+  font: 700 var(--label-font-size) var(--body-font-bold);
   color: var(--label-color);
   width: 100%;
   max-width: 24rem;
+}
+
+#first-acess {
+  font: 400 var(--label-font-size) var(--body-font);
+  text-align: center;
 }
 
 #first-acess .create-account {
-  text-align: center;
-  display: block;
-  align-items: center;
-  width: 100%;
-  max-width: 24rem;
-}
-
-.create-account {
-  font: 400 var(--label-font-size) var(--body-font);
-  color: var(--label-color);
-}
-
-.create-account span {
-  font: 400 var(--label-font-size) var(--body-font);
+  font: 700 var(--label-font-size) var(--body-font-bold);
   color: var(--base-color);
 }
 
@@ -190,28 +180,24 @@ button:active {
 }
 
 .logo strong {
-  font: 900 var(--body-font-size) var(--body-font);
+  font: 700 var(--body-font-size) var(--body-font-bold);
 }
 
 .container {
   margin-right: 2rem;
   margin-left: 2rem;
   margin-bottom: 32px;
+  width: 100%;
+  max-width: 24rem;
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
 }
 
 .acess {
   padding-right: 10px;
-}
-
-#login-container {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
 }
 
 .grid {
@@ -220,8 +206,8 @@ button:active {
 }
 
 .icon-Size-32px {
+  font: 600 var(--label-font-size) var(--body-font-semibold);
   color: var(--base-color);
-  margin-right: 7px;
 }
 
 #header {
@@ -238,6 +224,12 @@ button:active {
   width: 100%;
 }
 
+#header .container {
+  display: block;
+  text-align: center;
+  padding-top: 2rem;
+}
+
 #header.scroll {
   /*quando quiser mudar a cor durante scroll*/
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
@@ -248,8 +240,6 @@ nav {
   height: var(--header-height);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
 }
 
 /* Responsive */
@@ -257,10 +247,20 @@ nav {
 /* extra large devices: 1200 > */
 @media (min-width: 1200px) {
   /* reusable classes */
-  .container .login-container {
+  .container {
     max-width: 1120px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  form {
+    margin-right: 3.625rem;
   }
 
   button {
@@ -271,27 +271,36 @@ nav {
     display: flex;
     opacity: 1;
     visibility: visible;
-    height: 1024px;
-    width: 720px;
+    height: 59rem;
+    width: 41.5rem;
     margin-top: -47px;
   }
 }
 
 /* large devices: 1023 > */
 /* large devices: 992 > */
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   :root {
     --title-font-size: 2.25rem;
     --subtitle-font-size: 1.125rem;
   }
 
-  img {
+  nav.container {
     display: flex;
-    align-items: flex-end;
-    opacity: 1;
-    visibility: visible;
-    height: 1024px;
-    width: 720px;
-    margin-left: 150px;
+    max-width: 125px;
+  }
+
+  .container {
+    width: 24rem;
+    max-width: 24rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .login-container {
+    display: flex;
+    max-width: 24rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

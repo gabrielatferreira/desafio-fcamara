@@ -31,42 +31,43 @@
     </header>
 
     <main>
-      <div id="login-container">
-        <div class="container">
+      <div class="login-container">
+        <form>
           <div class="container">
             <h1 class="acess">Acesse a plataforma</h1>
           </div>
 
-          <form class="form">
-            <div class="container">
-              <label for="email">E-mail</label>
-              <input type="email" name="email" id="email" />
-            </div>
-            <div class="container">
-              <label for="password">Senha</label>
-              <input type="password" name="password" id="password" />
-            </div>
-            <div class="container">
-              <button>Acessar</button>
-            </div>
-            <div class="container" id="links">
-              <a class="forgot-password" href="forgot-password"
-                >Esqueceu sua senha?</a
-              >
-            </div>
-            <div class="container" id="first-acess">
-              <a class="create-account" href="#" id="links"
-                >Primeiro acesso?<span><b> Crie sua conta</b></span></a
-              >
-            </div>
-          </form>
+          <div class="container">
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="email" />
+          </div>
+
+          <div class="container">
+            <label for="password">Senha</label>
+            <input type="password" name="password" id="password" />
+          </div>
+
+          <div class="container">
+            <button>Acessar</button>
+          </div>
+
+          <div class="container" id="links">
+            <a class="forgot-password" href="forgot-password"
+              >Esqueceu sua senha?</a
+            >
+          </div>
+
+          <div class="container" id="first-acess">
+            Primeiro acesso?
+            <a class="create-account" href="#" id="links"> Crie sua conta</a>
+          </div>
+        </form>
+        <div>
+          <img class="banner" src="../assets/images/Banners.svg" alt="" />
         </div>
       </div>
     </main>
 
-    <div>
-      <img class="banner" src="../assets/images/Banners.png" alt="" />
-    </div>
     <script type="text/javascript" src="main-login.js"></script>
   </body>
 </html>
