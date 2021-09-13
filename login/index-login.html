@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../assets/images/favicon.svg"
+      type="image/x-icon"
+    />
     <title>Login</title>
 
     <!--  Icons -->
@@ -18,45 +23,50 @@
   <body>
     <header id="header">
       <nav class="container">
-        <i class="icon-Size-32px"></i>
-        <a class="logo" href="#">orange<strong>point</strong></a>
+        <div class="logo-op">
+          <i class="icon-Size-32px"></i>
+          <a class="logo" href="#">orange<strong>point</strong></a>
+        </div>
       </nav>
     </header>
 
-    <div id="login-container">
-      <div class="container">
-        <h1>Acesse a<br />plataforma</h1>
+    <main>
+      <div id="login-container">
+        <div class="container">
+          <div class="container">
+            <h1 class="acess">Acesse a plataforma</h1>
+          </div>
+
+          <form class="form">
+            <div class="container">
+              <label for="email">E-mail</label>
+              <input type="email" name="email" id="email" />
+            </div>
+            <div class="container">
+              <label for="password">Senha</label>
+              <input type="password" name="password" id="password" />
+            </div>
+            <div class="container">
+              <button>Acessar</button>
+            </div>
+            <div class="container" id="links">
+              <a class="forgot-password" href="forgot-password"
+                >Esqueceu sua senha?</a
+              >
+            </div>
+            <div class="container" id="first-acess">
+              <a class="create-account" href="#" id="links"
+                >Primeiro acesso?<span><b> Crie sua conta</b></span></a
+              >
+            </div>
+          </form>
+        </div>
       </div>
+    </main>
 
-      <form>
-        <div class="container">
-          <label for="email">E-mail</label>
-          <br />
-          <br />
-          <input type="email" name="email" id="email" />
-        </div>
-        <div class="container">
-          <label for="password">Senha</label>
-          <br />
-          <br />
-          <input type="password" name="password" id="password" />
-        </div>
-        <div class="container">
-          <button>Acessar</button>
-        </div>
-        <div class="container" id="links">
-          <a class="forgot-password" href="forgot-password"
-            >Esqueceu sua senha?</a
-          >
-        </div>
-        <div class="container" id="first-acess">
-          <a class="create-account" href="#" id="links"
-            >Primeiro acesso?<span><b> Crie sua conta</b></span></a
-          >
-        </div>
-      </form>
+    <div>
+      <img class="banner" src="../assets/images/Banners.png" alt="" />
     </div>
-
     <script type="text/javascript" src="main-login.js"></script>
   </body>
 </html>

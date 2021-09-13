@@ -14,8 +14,8 @@ a {
 }
 
 img {
-  width: 50px;
-  height: 50px;
+  display: none;
+  visibility: hidden;
 }
 
 /*======= VARIABLES ============================*/
@@ -31,6 +31,7 @@ img {
   --title-color: hsl(var(--hue) 100% 50%);
   --text-color: hsl(240 1% 29%);
   --text-color-light: hsl(240 0% 58%);
+  --text-color-active: hsl(240, 3%, 19%, 1);
   --body-color: hsl(0 0% 98%);
   --body-color-light: hsl(230 1% 90%);
   --button-color: hsl(240 22% 95%);
@@ -84,6 +85,10 @@ body {
   margin-top: 8rem;
 }
 
+.booking-container {
+  display: flex;
+}
+
 h2 {
   font: 700 var(--subtitle-font-size) var(--body-font);
   color: var(--title-color);
@@ -121,7 +126,11 @@ span {
 
 /* Datepicker*/
 
-input[type='date'] {
+.calendar {
+  display: inline-block;
+}
+
+#calendar-icon {
   background: var(--body-color);
   color: var(--text-color-light);
   border-radius: 0.5rem;
@@ -132,33 +141,15 @@ input[type='date'] {
   padding: 1rem;
   width: 100%;
   max-width: 24rem;
-}
-
-/* create a new arrow, because we are going to mess up the native one
-see "List of symbols" below if you want another, you could also try to add a font-awesome icon.. */
-/*input[type='date']:after {
-  font-weight: 900;
-
-  color: var(--text-color-light);
-  width: 1rem;
-}
-
-/* change color of symbol on hover */
-/*input[type='date']:hover:after {
-  color: var(--base-color);
+  background-image: url(../assets/icons/Type-Calendar-gray.svg);
+  background-position: 94% center;
+  background-repeat: no-repeat;
+  background-size: 16px;
 }
 
 /* make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker*/
-/*input[type='date']::-webkit-calendar-picker-indicator {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 8rem;
-  height: auto;
-  color: transparent;
-  background: transparent;
+input[type='date']::-webkit-calendar-picker-indicator {
+  opacity: 0;
 }
 
 /* adjust increase/decrease button */
@@ -169,6 +160,19 @@ input[type='date']::-webkit-inner-spin-button {
 /* adjust clear button */
 input[type='date']::-webkit-clear-button {
   z-index: 1;
+}
+
+.backbutton {
+  display: flex;
+  align-items: flex-start;
+}
+
+.icon-TypeBack-Left {
+  width: 40px;
+  border: none;
+  background-color: var(--body-color);
+  color: var(--base-color);
+  padding-right: 5rem;
 }
 
 button {
@@ -198,6 +202,64 @@ button:active {
     inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
 
+.unity {
+  display: flex;
+  flex-direction: row;
+  vertical-align: baseline;
+}
+
+.unidade-negocio {
+  margin-left: 1rem;
+  padding-top: 0.22rem;
+}
+
+/* Hide the browser's default radio button */
+input[type='radio'] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0.3rem 0px 0px 0.3rem;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  display: flex;
+  flex-direction: column;
+  height: 20px;
+  width: 20px;
+  background-color: var(--body-color);
+  border-radius: 50%;
+  border: 2px solid #949495;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #ff4400;
+  border: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+  width: 10px;
+  height: 10px;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  border-radius: 50%;
+  background: #ff4400;
+  margin: 2px 2px;
+  border: 3px solid white;
+}
+
 /*======= LAYOUT ========*/
 
 .logo {
@@ -207,11 +269,6 @@ button:active {
 
 .logo strong {
   font: 900 var(--body-font-size) var(--body-font);
-}
-
-.nav-container {
-  margin-right: 2rem;
-  margin-left: 2rem;
 }
 
 .container {
@@ -237,17 +294,19 @@ button:active {
   border-color: var(--body-color-light);
   border-style: solid;
   border-width: 1px;
-  cursor: pointer;
-  /*box-shadow: 0 3px 10px 0 #aaa;*/
+  transition: all 0.2s ease-out;
 }
 
 .card:hover {
   box-shadow: 0 3px 10px 0 #aaa;
   border-color: rgba(148, 148, 149, 1);
+  transform: translateY(-5px);
+  cursor: pointer;
 }
 
 .card:active {
   background-color: var(--card-background);
+  color: var(--base-color);
   border: none;
 }
 
@@ -273,6 +332,10 @@ button:active {
 }
 
 .container select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
   height: 3rem;
   max-width: 24rem;
   width: 100%;
@@ -282,6 +345,10 @@ button:active {
   font: 400 var(--input-font-size) var(--body-font);
   color: var(--text-color-light);
   background: var(--body-color);
+  background-image: url(../assets/icons/chevron-down-gray.svg);
+  background-position: 95% center;
+  background-repeat: no-repeat;
+  background-size: 24px;
 }
 
 textarea {
@@ -445,12 +512,13 @@ nav.show div.icon-TypeX {
     padding: 10rem 0;
   }
 
-  .section header,
-  #testimonials header {
-    max-width: 32rem;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+  img {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    height: 1099px;
+    width: 484px;
+    margin-top: -47px;
   }
 
   button {
@@ -490,5 +558,15 @@ nav.show div.icon-TypeX {
   :root {
     --title-font-size: 2.25rem;
     --subtitle-font-size: 1.125rem;
+  }
+
+  img {
+    display: flex;
+    align-items: flex-end;
+    opacity: 1;
+    visibility: visible;
+    height: 1099px;
+    width: 484px;
+    margin-left: 150px;
   }
 }

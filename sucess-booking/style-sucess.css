@@ -14,10 +14,14 @@ a {
 }
 
 img {
-  display: none;
-  visibility: hidden;
+  width: 350px;
+  height: auto;
 }
 
+.image {
+  display: flex;
+  justify-content: space-around;
+}
 /*======= VARIABLES ============================*/
 :root {
   --header-height: 5rem;
@@ -89,25 +93,33 @@ body {
   display: flex;
 }
 
-h2 {
-  font: 700 var(--subtitle-font-size) var(--body-font);
+h1 {
+  font: 700 var(--title-font-size) var(--body-font);
   color: var(--title-color);
-  text-align: center;
+  text-align: left;
   margin-bottom: 3.1875rem;
 }
 
+h1.acess {
+  width: 220px;
+}
+
 h3 {
-  font: 600 var(--label-font-size) var(--body-font);
-  color: var(--text-color-active);
-  margin-bottom: 0.2rem;
-  line-height: 1.5rem;
+  font: 700 var(--subtitle-font-size) var(--body-font);
+  color: var(--text-color);
+  margin-bottom: 2rem;
 }
 
 p {
-  font: 200 var(--body-font-size) var(--body-font);
-  font-weight: 200;
-  color: var(--text-color);
-  margin-bottom: 1.5rem;
+  font: 200 var(--label-font-size) var(--body-font);
+  color: var(--text-color-light);
+  margin-bottom: 2rem;
+  width: 200px;
+  line-height: 1.3rem;
+}
+
+.links {
+  color: var(--base-color);
 }
 
 label {
@@ -117,6 +129,32 @@ label {
 
 span {
   font: 400 var(--input-font-size) var(--body-font);
+}
+
+.terms {
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+}
+
+input {
+  width: 100%;
+  height: 3rem;
+  padding: 1rem;
+  max-width: 24rem;
+  font: 400 var(--label-font-size) var(--body-font);
+  color: var(--input-color);
+  background-color: var(--body-color);
+  border-radius: 10px;
+  border-color: var(--body-color-light);
+  border-width: 1px;
+}
+
+input[type='checkbox'] {
+  height: 1rem;
+  width: 1rem;
+  align-content: flex-start;
+  margin-right: 1rem;
 }
 
 .title {
@@ -178,8 +216,8 @@ input[type='date']::-webkit-clear-button {
 
 button {
   max-width: 24rem;
-  background-color: var(--button-color);
-  color: var(--text-color-light);
+  background-color: var(--base-color-second);
+  color: var(--body-color);
   height: 3rem;
   display: inline-flex;
   align-items: center;
@@ -197,6 +235,7 @@ button {
 button:hover {
   background-color: rgba(254, 68, 0, 1);
   color: var(--body-color);
+  cursor: pointer;
 }
 
 button:active {
@@ -285,27 +324,15 @@ input[type='radio'] {
 }
 
 .card {
-  width: 100%;
   display: flex;
   flex-direction: column;
   max-width: 24rem;
   margin-bottom: 1.5rem;
   background: var(--body-color);
   border-radius: 0.5rem;
-  height: 29.0625rem;
+  height: 4.5rem;
   padding: 1rem;
-  border-color: var(--text-color);
-  border-style: solid;
-  border-width: 1px;
-}
-
-.information {
-  display: flex;
-}
-
-#icon-confirmation {
-  color: var(--base-color);
-  margin-right: 0.5rem;
+  border: none;
 }
 
 .type-label {

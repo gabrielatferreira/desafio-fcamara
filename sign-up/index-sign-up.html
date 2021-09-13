@@ -1,44 +1,69 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style-sign-up.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style-sign-up.css" />
+    <link
+      rel="shortcut icon"
+      href="../assets/images/favicon.svg"
+      type="image/x-icon"
+    />
     <title>Cadastro</title>
-</head>
-<body>
-    <div id="sign-up-container">
-        <h1>Fazer<br>cadastro</h1>
+
+    <!--  Icons -->
+    <link rel="stylesheet" href="../assets/icons/style.css" />
+  </head>
+  <body>
+    <header id="header">
+      <nav class="container">
+        <div class="logo-op">
+          <i class="icon-Size-32px"></i>
+          <a class="logo" href="#">orange<strong>point</strong></a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div id="sign-up-container">
+        <div class="container">
+          <h1 class="acess">Crie sua conta</h1>
+        </div>
         <form>
-            <div class="field">
-                <label for="name">Nome completo</label>
-                <br>
-                <input type="text" name="name" id="name">
-            </div>
-            <div class="field">
-                <label for="email">E-mail</label>
-                <br>
-                <input type="email" name="email" id="email">
-            </div>
-            <div class="field">
-                <label for="password">Senha</label>
-                <br>
-                <input type="password" name="password" id="password"> 
-            </div>
-            <div class="field">
-                <label for="password">Repetir senha</label>
-                <br>
-                <input type="password" name="password" id="password"> 
-            </div>
-            <input type="checkbox" name="terms" id="terms" value>Concordo com os <a href="">termos</a>
-            <br><br>
+          <div class="container">
+            <label for="name">Nome completo</label>
+            <input type="text" name="name" id="name" />
+          </div>
+          <div class="container">
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="email" />
+          </div>
+          <div class="container">
+            <label for="password">Senha</label>
+            <input type="password" name="password" id="password" />
+          </div>
+          <div class="container">
+            <label for="password">Repetir senha</label>
+            <input type="password" name="password" id="password" />
+          </div>
+          <div class="container terms">
+            <input type="checkbox" name="terms" id="terms" value />
+            <label
+              >Eu li e concordo com os
+              <a class="links" href="#">Termos de Uso</a></label
+            >
+          </div>
+          <div class="container">
             <button>Criar conta</button>
-
+          </div>
+          <div class="container">
+            <p>Já tem uma conta?<a class="links" href="#"> Acesse</a></p>
+          </div>
         </form>
-
-    </div>
+      </div>
+    </main>
 
     <script type="text/javascript" src="main-sign-up.js"></script>
-</body>
+  </body>
 </html>
