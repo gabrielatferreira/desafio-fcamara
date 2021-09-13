@@ -13,15 +13,16 @@ const uri = `mongodb+srv://${userName}:${password}@cluster0.qt4do.mongodb.net/${
 const UsuarioSchema = new mongoose.Schema({nome: String, email: String, senha: String});
 const UnidadeNegocioSchema = new mongoose.Schema({ "unidade_negocio": String });
 const EstacaoTrabalhoSchema = new mongoose.Schema({ "estacao_trabalho": String, "id_unidade_negocio": String, quantidade_lugares: String });
-const TurnoSchema = new mongoose.Schema({ "turno": String });
-const ReservaSchema = new mongoose.Schema({ "id_usuario": String, "id_unidade_negocio": String, "id_estacao_trabalho": String, "data_reserva": String, "requisicao_material": String, turno: String });
+const ReservaSchema = new mongoose.Schema({ "id_usuario": String, "id_unidade_negocio": String, "id_estacao_trabalho": String, "data_reserva": String, "requisicao_material": String, });
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-app.get("/login", [], async (req, res) => {
+/* ROTAS */
+
+app.post("/login", [], async (req, res) => {
     if (req.body === null || req.body === undefined || Object.keys(req.body).length === 0) 
         return res.json("Necessário passar um corpo na mensagem com email e senha!")
 
@@ -89,54 +90,6 @@ app.post("/usuarios", [], async (req, res) => {
     return res.json(response);
 });
 
-app.get("/turnos", [], async (req, res) => {
-    const empty = {};
-    
-    await mongoose.connect(uri, { useNewUrlParser: true });
-
-    const Turno = mongoose.model('turno', TurnoSchema);
-
-    const turnos = await Turno.find().exec();
-    if(turnos.length > 0) {
-        responseList = [];
-        
-        for(var index in turnos) {
-            responseList.push({
-                id: turnos[index]._id,
-                turno: turnos[index].turno,
-            })
-        }
-        return res.json(responseList);
-    }
-
-    return res.json("Não há turnos cadastrados");
-});
-
-app.post("/turnos", [], async (req, res) => {
-    const empty = {};
-    if (req.body === null || req.body === undefined || Object.keys(req.body).length === 0) 
-        return res.json("Necessário passar um corpo na mensagem com o turno!")
-    
-    if (req.body.turno === null || req.body.turno === undefined || req.body.turno === "") 
-        return res.json("Necessário preencher o campo turno!")
-    
-    await mongoose.connect(uri, { useNewUrlParser: true });
-
-    const Turno = mongoose.model('turno', TurnoSchema);
-
-    const existeTurno = await Turno.find({ turno: req.body.turno}).exec();
-    if(existeTurno.length > 0) return res.json("Necessário informar outro turno, este está cadastrado!")
-
-    const turnoCriado = await Turno.create(req.body);
-
-    var response = {
-        id: turnoCriado._id,
-        turno: turnoCriado.turno,
-    }
-
-    return res.json(response);
-});
-
 app.get("/unidades_negocio", [], async (req, res) => {
     
     await mongoose.connect(uri, { useNewUrlParser: true });
@@ -150,7 +103,6 @@ app.get("/unidades_negocio", [], async (req, res) => {
         for(var index in unidadesNegocio) {
             responseList.push({
                 id: unidadesNegocio[index]._id,
-                turno: unidadesNegocio[index].unidade_negocio,
             })
         }
         return res.json(responseList);
@@ -281,7 +233,6 @@ app.get("/reservas", [], async (req, res) => {
                 id_estacao_trabalho: reservas[index].id_estacao_trabalho,
                 requisicao_material: reservas[index].requisicao_material,
                 data_reserva: reservas[index].data_reserva,
-                turno: reservas[index].turno
             })
         }
         return res.json(responseList);
@@ -364,7 +315,6 @@ app.get("/reservas/:id_usuario", [], async (req, res) => {
                 id_estacao_trabalho: reservas[index].id_estacao_trabalho,
                 requisicao_material: reservas[index].requisicao_material,
                 data_reserva: reservas[index].data_reserva,
-                turno: reservas[index].turno
             })
         }
         return res.json(responseList);
@@ -399,12 +349,6 @@ app.post("/reservas", [], async (req, res) => {
     if(req.body.id_estacao_trabalho === null || req.body.id_estacao_trabalho === undefined || req.body.id_estacao_trabalho === "")
         return res.json("Preencha uma estação de trabalho!")
 
-    if(req.body.turno === null || req.body.turno === undefined || req.body.turno === "")
-        return res.json("Preencha o campo turno!")
-
-        if(req.body.turno !== "manha" && req.body.turno !== "tarde" && req.body.turno !== "integral")
-        return res.json("Preencha um dos turnos: manhã, tarde ou integral")
-
     if(req.body.id_usuario === null || req.body.id_usuario === undefined || req.body.id_usuario === "")
         return res.json("Preencha um usuário")
 
@@ -427,16 +371,6 @@ app.post("/reservas", [], async (req, res) => {
         return res.json("Você já possui reserva nesta data, necessário excluir e fazer uma nova reserva!")
     }
 
-    let quantidade_integral = 0;
-    let quantidade_manha = 0;
-    let quantidade_tarde = 0;
-
-    if(reservas != null && reservas.length > 0) {
-        quantidade_integral = reservas.filter(reserva => reserva.turno=='integral').length
-        quantidade_manha = reservas.filter(reserva => reserva.turno=='manha').length
-        quantidade_tarde = reservas.filter(reserva => reserva.turno=='tarde').length
-    }
-
     const estacoesTrabalho = await EstacaoTrabalho.find({ 
         id_unidade_negocio: req.body.id_unidade_negocio,
         id_estacao_trabalho: req.body.id_estacao_trabalho
@@ -450,30 +384,7 @@ app.post("/reservas", [], async (req, res) => {
     if(quantidade_de_lugares == null || quantidade_de_lugares == undefined || quantidade_de_lugares == 0) {
         return res.json("Não é possível reservar, pois não foi informado a quantidade de lugares nesta estação")
     }
-    let quantidade_turno = parseInt(quantidade_manha) > parseInt(quantidade_tarde) ? parseInt(quantidade_manha) : parseInt(quantidade_tarde);
-    console.log("quantidade_turno " + quantidade_turno)
-    let disponibilidade_maxima_por_turno = (parseInt(quantidade_de_lugares) - parseInt(quantidade_integral));
-    let disponibilidade_manha = parseInt(disponibilidade_maxima_por_turno) - parseInt(quantidade_manha);
-    let disponibilidade_tarde = parseInt(disponibilidade_maxima_por_turno) - parseInt(quantidade_tarde);
-    let disponibilidade_integral = parseInt(quantidade_de_lugares) - parseInt(quantidade_integral) - parseInt(quantidade_turno);
     
-    console.log("quantidade disponibilidade " + disponibilidade_integral);
-    console.log("quantidade disponibilidade manha " + disponibilidade_tarde);
-    console.log("quantidade disponibilidade tarde " + disponibilidade_manha);
-
-    if(disponibilidade_integral <= 0 && disponibilidade_manha <= 0 && disponibilidade_tarde <= 0) {
-        return res.json("Não há disponibilidade para reservar neste dia!")
-    } 
-    if(disponibilidade_integral <= 0 && req.body.turno == 'integral') {
-       return res.json("Não há disponibilidade para reservar o dia inteiro, veja disponiblidade no turno manhã ou tarde!")
-    } 
-    if(req.body.turno == 'manha' && disponibilidade_manha == 0) {
-        return res.json("Não há disponibilidade para reservar na parte da manhã!")
-    }
-    if(req.body.turno == 'tarde' && disponibilidade_tarde == 0) {
-        return res.json("Não há disponibilidade para reservar na parte da tarde!")
-    }
-
     const reserva = await Reserva.create(req.body);
 
     var response = {
@@ -481,8 +392,7 @@ app.post("/reservas", [], async (req, res) => {
         id_unidade_negocio: reserva.id_unidade_negocio,
         id_estacao_trabalho: reserva.id_estacao_trabalho,
         requisicao_material: reserva.requisicao_material,
-        data_reserva: reserva.data_reserva,
-        turno: reserva.turno
+        data_reserva: reserva.data_reserva
     }
 
     return res.json(response);
@@ -516,9 +426,6 @@ app.delete("/reservas", [], async (req, res) => {
     if(req.body.id_estacao_trabalho === null || req.body.id_estacao_trabalho === undefined || req.body.id_estacao_trabalho === "")
         return res.json("Preencha o id da estação de trabalho!")
 
-    if(req.body.turno === null || req.body.turno === undefined || req.body.turno === "")
-        return res.json("Preencha o id do turno!")
-
     if(req.body.id_usuario === null || req.body.id_usuario === undefined || req.body.id_usuario === "")
         return res.json("Preencha o id do usuario!")
 
@@ -536,7 +443,6 @@ app.delete("/reservas", [], async (req, res) => {
         id_estacao_trabalho: reservas.id_estacao_trabalho,
         requisicao_material: reservas.requisicao_material,
         data_reserva: reservas.data_reserva,
-        turno: reservas.turno,
         message: "Sua reserva foi excluída!"
     }
 
@@ -569,12 +475,6 @@ app.put("/reservas", [], async (req, res) => {
     if(req.body.id_estacao_trabalho === null || req.body.id_estacao_trabalho === undefined || req.body.id_estacao_trabalho === "")
         return res.json("Preencha o id da estação de trabalho!")
 
-    if(req.body.turno === null || req.body.turno === undefined || req.body.turno === "")
-        return res.json("Preencha o turno!")
-
-    if(req.body.turno !== "manha" && req.body.turno !== "tarde" && req.body.turno !== "integral")
-        return res.json("Preencha um dos turnos: manhã, tarde ou integral!")
-
     if(req.body.id_usuario === null || req.body.id_usuario === undefined || req.body.id_usuario === "")
         return res.json("Preencha o id do usuario!")
 
@@ -592,16 +492,6 @@ app.put("/reservas", [], async (req, res) => {
         data_reserva: req.body.data_reserva,
     }).exec();
 
-    let quantidade_integral = 0;
-    let quantidade_manha = 0;
-    let quantidade_tarde = 0;
-
-    if(reservas != null && reservas.length > 0) {
-        quantidade_integral = reservas.filter(reserva => reserva.turno=='integral').length
-        quantidade_manha = reservas.filter(reserva => reserva.turno=='manha').length
-        quantidade_tarde = reservas.filter(reserva => reserva.turno=='tarde').length
-    }
-
     const estacoesTrabalho = await EstacaoTrabalho.find({ 
         id_unidade_negocio: req.body.id_unidade_negocio,
         id_estacao_trabalho: req.body.id_estacao_trabalho
@@ -615,34 +505,10 @@ app.put("/reservas", [], async (req, res) => {
     if(quantidade_de_lugares == null || quantidade_de_lugares == undefined || quantidade_de_lugares == 0) {
         return res.json("Não é possível atualizar a reserva, pois não foi informado a quantidade de lugares nesta estação!")
     }
-    let quantidade_turno = parseInt(quantidade_manha) > parseInt(quantidade_tarde) ? parseInt(quantidade_manha) : parseInt(quantidade_tarde);
-    console.log("quantidade_turno " + quantidade_turno)
-    let disponibilidade_maxima_por_turno = (parseInt(quantidade_de_lugares) - parseInt(quantidade_integral));
-    let disponibilidade_manha = parseInt(disponibilidade_maxima_por_turno) - parseInt(quantidade_manha);
-    let disponibilidade_tarde = parseInt(disponibilidade_maxima_por_turno) - parseInt(quantidade_tarde);
-    let disponibilidade_integral = parseInt(quantidade_de_lugares) - parseInt(quantidade_integral) - parseInt(quantidade_turno);
-    
-    console.log("quantidade disponibilidade " + disponibilidade_integral);
-    console.log("quantidade disponibilidade manha " + disponibilidade_tarde);
-    console.log("quantidade disponibilidade tarde " + disponibilidade_manha);
-
-    if(disponibilidade_integral <= 0 && disponibilidade_manha <= 0 && disponibilidade_tarde <= 0) {
-        return res.json("Não há disponibilidade para atualizar a reserva neste dia!")
-    } 
-    if(disponibilidade_integral <= 0 && req.body.turno == 'integral') {
-       return res.json("Não há disponibilidade para atualizar a reserva para o dia inteiro, veja disponiblidade no turno manhã ou tarde!")
-    } 
-    if(req.body.turno == 'manha' && disponibilidade_manha == 0) {
-        return res.json("Não há disponibilidade para atualizar a reserva para a parte da manhã!")
-    }
-    if(req.body.turno == 'tarde' && disponibilidade_tarde == 0) {
-        return res.json("Não há disponibilidade para atualizar a reserva para a parte da tarde!")
-    }
 
     const reserva = await Reserva.create({
         id_usuario: req.body.id_usuario,
         id_unidade_negocio: req.body.id_unidade_negocio,
-        turno: req.body.turno,
         requisicao_material: req.body.requisicao_material,
         id_estacao_trabalho: req.body.id_estacao_trabalho,
         data_reserva: req.body.data_reserva,
@@ -658,7 +524,6 @@ app.put("/reservas", [], async (req, res) => {
         id_estacao_trabalho: reserva.id_estacao_trabalho,
         requisicao_material: reserva.requisicao_material,
         data_reserva: reserva.data_reserva,
-        turno: reserva.turno
     }
 
     return res.json(response)
