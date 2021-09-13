@@ -21,7 +21,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get("/login", [], async (req, res) => {
+app.post("/login", [], async (req, res) => {
     if (req.body === null || req.body === undefined || Object.keys(req.body).length === 0) 
         return res.json("Necessário passar um corpo na mensagem com email e senha!")
 
