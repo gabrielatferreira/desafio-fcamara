@@ -34,51 +34,52 @@
             conta
           </h1>
         </div>
+        
+          <div class="container">
+            <label for="name">Nome completo</label>
+            <input type="text" name="name" id="name" />
+          </div>
 
-          <div>
-            <div class="container">
-              <label for="name">Nome completo</label>
-              <input type="text" name="name" id="name" />
-            </div>
+          <div class="container">
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="email" />
+          </div>
 
-            <div class="container">
-              <label for="email">E-mail</label>
-              <input type="email" name="email" id="email" />
-            </div>
+          <div class="container">
+            <label for="password">Senha</label>
+            <input type="password" name="password" id="password" />
+          </div>
 
-            <div class="container">
-              <label for="password">Senha</label>
-              <input type="password" name="password" id="password" />
-            </div>
+          <div class="container">
+            <label for="password">Repetir senha</label>
+            <input type="password" name="password" id="passwordagain" />
+          </div>
 
-            <div class="container">
-              <label for="password">Repetir senha</label>
-              <input type="password" name="password" id="passwordagain" />
-            </div>
-
-            <div class="container box-terms">
-              <input type="checkbox" name="terms" id="terms" value />
-              <label
-                >Eu li e concordo com os
+          <div class="container box-terms">
+            <label class="read">
+              <input type="checkbox" name="terms" id="terms" />
+              <span class="checkmark"></span>
+                Eu li e concordo com os
                 <a 
                   class="links" 
                   target="_blank" 
                   href="http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
                   >Termos de Uso</a>
-              </label>
-            </div>
-            
-            <div class="container">
-              <button type="submit" onclick="userAction()">
-                Criar conta
-              </button>
-            </div>
-            <div class="container">
-              <p>Já tem uma conta?<a class="links" href="/login/index-login.html">
+            </label>
+          </div>
+
+          <div class="container">
+            <button type="submit" onclick="userAction()">
+              Criar conta
+            </button>
+          </div>
+
+          <div class="container">
+            <p>
+              Já tem uma conta?<a class="links" href="/login/index-login.html">
                 Acesse</a
-                >
-              </p>
-            </div>
+              >
+            </p>
           </div>
         </div>
         <div>
