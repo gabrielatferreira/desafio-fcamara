@@ -35,3 +35,7 @@ function changeHeaderWhenScrool() {
 window.addEventListener('scroll', function () {
   changeHeaderWhenScrool()
 })
+
+const acessoFazerBooking = () => {
+  document.location.href = "../booking/index-booking.html";
+}

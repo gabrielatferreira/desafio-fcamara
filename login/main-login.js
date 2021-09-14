@@ -16,3 +16,30 @@ function changeHeaderWhenScrool() {
 window.addEventListener('scroll', function () {
   changeHeaderWhenScrool()
 })
+
+/* validação do login */
+
+const userActionLogin = async () => {
+  console.log("clicou");
+  const response = await fetch('http://orangepoint.herokuapp.com/login', {
+      method: 'POST',
+      headers: {
+      'Content-Type': 'application/json'
+      },
+      body: JSON.stringify ({
+          email: document.getElementById('email').value,
+          senha: document.getElementById('password').value
+      })
+  });
+  console.log(response);
+  const myJson = await response.json();
+  console.log(myJson);
+  if(myJson.token) {
+    acessoLogin();
+  }
+}
+
+const acessoLogin = () => {
+  document.location.href = "../welcome/welcome.html";
+}
+
