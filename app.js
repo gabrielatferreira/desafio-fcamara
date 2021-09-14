@@ -103,6 +103,7 @@ app.get("/unidades_negocio", [], async (req, res) => {
         for(var index in unidadesNegocio) {
             responseList.push({
                 id: unidadesNegocio[index]._id,
+                unidade_negocio: unidadesNegocio[index].unidade_negocio
             })
         }
         return res.json(responseList);

@@ -39,3 +39,10 @@ window.addEventListener('scroll', function () {
 const acessoFazerBooking = () => {
   document.location.href = "../booking/index-booking.html";
 }
+
+const carregaNomeUsuario = () => {
+  const nome = localStorage.getItem("nome");
+  document.getElementById('nome-usuario').innerHTML = nome;
+}
+
+carregaNomeUsuario();
