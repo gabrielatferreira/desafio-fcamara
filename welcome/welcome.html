@@ -25,7 +25,10 @@
         <div class="menu">
           <ul class="grid">
             <li><a class="title" href="#">Início</a></li>
-            <li><a class="title" href="#">Sair</a></li>
+            <li>
+              <a class="title" href="#" id="leave">Sair</a>
+              <a class="icon-TypeLogout" href="#"></a>
+            </li>
           </ul>
         </div>
         <!-- menu icons -->
@@ -34,15 +37,23 @@
       </nav>
     </header>
     <main>
-      <div class="container">
-        <h1 class="acess">Boas-vindas, Carla!</h1>
-        <button>Fazer agendamento</button>
-      </div>
-      <div class="container">
-        <div class="card">
-          <h3>Seus agendamentos</h3>
-          <p>Você ainda não realizou agendamentos.</p>
+      <div class="welcome-container">
+        <div class="container">
+          <h1 class="acess">Boas-vindas, Carla!</h1>
+          <button>Fazer agendamento</button>
         </div>
+
+        <section class="cards">
+          <div class="container">
+            <h3>Seus agendamentos</h3>
+          </div>
+          <div class="container">
+            <div class="card">
+              <p>Você ainda não realizou agendamentos.</p>
+              <div></div>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
     <script src="welcome.js"></script>

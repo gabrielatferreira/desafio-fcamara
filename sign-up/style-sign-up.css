@@ -403,7 +403,7 @@ textarea {
 
 /* large devices: 1023 > */
 /* large devices: 768 > */
-@media (min-width: 768px) {
+@media only screen and (min-width: 425px) and (max-device-width: 1199px) {
   :root {
     --title-font-size: 2.25rem;
     --subtitle-font-size: 1.125rem;

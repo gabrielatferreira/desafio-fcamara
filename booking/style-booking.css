@@ -121,8 +121,8 @@ span {
 }
 
 .title {
-  font: 400 var(--title-font-size) var(--body-font);
-  color: var(--text-color);
+  font: 400 var(--subtitle-font-size) var(--body-font);
+  color: var(--text-color-active);
   -webkit-font-smoothing: auto;
 }
 
@@ -577,9 +577,8 @@ nav.show div.icon-TypeX {
   }
 }
 
-/* large devices: 1023 > */
-/* large devices: 768 > */
-@media (min-width: 768px) {
+/* large devices: tablet > */
+@media only screen and (min-width: 425px) and (max-device-width: 1199px) {
   :root {
     --title-font-size: 2.25rem;
     --subtitle-font-size: 1.125rem;
@@ -587,6 +586,7 @@ nav.show div.icon-TypeX {
 
   .booking-container {
     display: flex;
+    max-width: 24rem;
     margin-left: auto;
     margin-right: auto;
   }
