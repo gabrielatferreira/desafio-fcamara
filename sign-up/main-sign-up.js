@@ -45,7 +45,7 @@ const limparCampos = () => {
   document.getElementById('email').value = "";
   document.getElementById('password').value = "";
   document.getElementById('passwordagain').value = "";
-  document.getElementById('terms').value = "";
+  document.getElementById('box-terms').value = "";
 }
 
 const sucesso = () => {
@@ -59,13 +59,13 @@ const validarSenha = (password, passwordagain) => {
   if (password != "" && passwordagain != "" && password === passwordagain) {
     return true;
   } else {
-    alert("senhas diferentes")
+    alert("As senhas estão diferentes!")
   }
   return false;
 }
 
 const checkboxValidation = () => {
-  var checkbox = document.getElementById('terms').checked;
+  var checkbox = document.getElementById('box-terms').checked;
   if (checkbox == "") {
       alert("Aceite os termos de uso para se cadastrar.")
   } else {
