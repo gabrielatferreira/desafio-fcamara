@@ -60,7 +60,7 @@ const checkboxValidation = () => {
 /* validação do login */
 
 const userActionLogin = async () => {
-    console.log("foi clicado")
+    console.log("clicou");
     const response = await fetch('http://orangepoint.herokuapp.com/login', {
         method: 'POST',
         headers: {
@@ -71,7 +71,11 @@ const userActionLogin = async () => {
             senha: document.getElementById('password').value
         })
     });
+    console.log(response);
     const myJson = await response.json();
     console.log(myJson);
-    limparCampos();
+}
+
+const acessoLogin = () => {
+    document.open = "../welcome/welcome.html";
 }
