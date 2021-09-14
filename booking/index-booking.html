@@ -58,21 +58,15 @@
               <p>Para qual unidade?</p>
             </div>
 
-            <div class="container unity">
-              <input type="radio" name="radio" />
-              <span class="checkmark"></span>
-              <label class="unidade-negocio">São Paulo</label>
-            </div>
-
-            <div class="container unity">
-              <input type="radio" name="radio" />
-              <span class="checkmark"></span>
-              <label class="unidade-negocio">Santos</label>
-            </div>
+            <div id="radios"></div>
 
             <div class="container">
               <p>Em qual data?</p>
-              <input id="calendar-icon" type="date" />
+              <input
+                id="calendar-icon"
+                type="date"
+                onchange="onChangeData();"
+              />
             </div>
 
             <div class="container">
