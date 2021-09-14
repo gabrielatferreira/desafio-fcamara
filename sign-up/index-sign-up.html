@@ -31,8 +31,8 @@
     </header>
 
     <main>
-      <div class="sign-up-container">
-        <form>
+      <div id="sign-up-container">
+        <div class="form">
           <div class="container">
             <h1 class="acess">
               Crie sua<br />
@@ -65,18 +65,29 @@
               <input type="checkbox" name="terms" id="terms" />
               <span class="checkmark"></span>
               Eu li e concordo com os
-              <a class="link-terms" href="#">Termos de Uso</a>
+              <a
+                class="links"
+                target="_blank"
+                href="http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+                >Termos de Uso</a
+              >
             </label>
           </div>
 
           <div class="container">
-            <button>Criar conta</button>
+            <button type="submit" id="button" onclick="userAction()">
+              Criar conta
+            </button>
           </div>
 
           <div class="container">
-            <p>Já tem uma conta?<a class="link-acess" href="#"> Acesse</a></p>
+            <p>
+              Já tem uma conta?<a class="links" href="/login/index-login.html">
+                Acesse</a
+              >
+            </p>
           </div>
-        </form>
+        </div>
         <div>
           <img class="banner" src="../assets/images/Banner-Signup.svg" alt="" />
         </div>

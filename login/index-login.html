@@ -31,8 +31,8 @@
     </header>
 
     <main>
-      <div class="login-container">
-        <form>
+      <div id="login-container">
+        <div class="form">
           <div class="container">
             <h1 class="acess">Acesse a plataforma</h1>
           </div>
@@ -48,7 +48,9 @@
           </div>
 
           <div class="container">
-            <button>Acessar</button>
+            <button type="submit" id="button" onclick="userActionLogin()">
+              Acessar
+            </button>
           </div>
 
           <div class="container" id="links">
@@ -58,10 +60,14 @@
           </div>
 
           <div class="container" id="first-acess">
-            Primeiro acesso?
-            <a class="create-account" href="#" id="links"> Crie sua conta</a>
+            <a
+              class="create-account"
+              href="/sign-up/index-sign-up.html"
+              id="links"
+              >Primeiro acesso?<span><b> Crie sua conta</b></span></a
+            >
           </div>
-        </form>
+        </div>
         <div>
           <img class="banner" src="../assets/images/Banners.svg" alt="" />
         </div>
