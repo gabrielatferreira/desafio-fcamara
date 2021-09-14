@@ -33,7 +33,6 @@ img {
   --button-color-hover: hsl(100%, 50%);
   --card-background: hsl(240, 22%, 95%);
   --label-color: hsl(240, 1%, 29%);
-  --input-color: hsl(240, 0%, 58%);
 
   /* fonts */
   --title-font-size: 2rem;
@@ -111,6 +110,20 @@ span {
   font: 400 var(--input-font-size) var(--body-font);
 }
 
+input {
+  width: 100%;
+  height: 3rem;
+  padding: 1rem;
+  max-width: 24rem;
+  font: 400 var(--label-font-size) var(--body-font);
+  color: var(--text-color-light);
+  background-color: var(--body-color);
+  border-radius: 10px;
+  border-color: var(--body-color-light);
+  border-width: 1px;
+  margin-top: 0.5rem;
+}
+
 button {
   max-width: 24rem;
   background-color: var(--button-color);
@@ -126,20 +139,6 @@ button {
   border-color: var(--body-color-light);
   border-width: 1px;
   transition: background 0.3s;
-}
-
-input {
-  width: 100%;
-  height: 3rem;
-  padding: 1rem;
-  max-width: 24rem;
-  font: 400 var(--label-font-size) var(--body-font);
-  color: var(--input-color);
-  background-color: var(--body-color);
-  border-radius: 10px;
-  border-color: var(--body-color-light);
-  border-width: 1px;
-  margin-top: 0.5rem;
 }
 
 button:hover {

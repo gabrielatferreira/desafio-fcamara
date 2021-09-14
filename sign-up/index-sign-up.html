@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="style-sign-up.css" />
     <link
       rel="shortcut icon"
       href="../assets/images/favicon.svg"
@@ -14,6 +13,12 @@
 
     <!--  Icons -->
     <link rel="stylesheet" href="../assets/icons/style.css" />
+
+    <!--  Style -->
+    <link rel="stylesheet" type="text/css" href="style-sign-up.css" />
+
+    <!-- Fonts-->
+    <link rel="stylesheet" href="style-login.css" />
   </head>
   <body>
     <header id="header">
@@ -26,41 +31,52 @@
     </header>
 
     <main>
-      <div id="sign-up-container">
-        <div class="container">
-          <h1 class="acess">Crie sua conta</h1>
-        </div>
+      <div class="sign-up-container">
         <form>
+          <div class="container">
+            <h1 class="acess">Crie sua conta</h1>
+          </div>
+
           <div class="container">
             <label for="name">Nome completo</label>
             <input type="text" name="name" id="name" />
           </div>
+
           <div class="container">
             <label for="email">E-mail</label>
             <input type="email" name="email" id="email" />
           </div>
+
           <div class="container">
             <label for="password">Senha</label>
             <input type="password" name="password" id="password" />
           </div>
+
           <div class="container">
             <label for="password">Repetir senha</label>
             <input type="password" name="password" id="password" />
           </div>
-          <div class="container terms">
-            <input type="checkbox" name="terms" id="terms" value />
-            <label
-              >Eu li e concordo com os
-              <a class="links" href="#">Termos de Uso</a></label
-            >
+
+          <div class="container box-terms">
+            <label class="read">
+              <input type="checkbox" name="terms" id="terms" />
+              <span class="checkmark"></span>
+              Eu li e concordo com os
+              <a class="link-terms" href="#">Termos de Uso</a>
+            </label>
           </div>
+
           <div class="container">
             <button>Criar conta</button>
           </div>
+
           <div class="container">
-            <p>Já tem uma conta?<a class="links" href="#"> Acesse</a></p>
+            <p>Já tem uma conta?<a class="link-acess" href="#"> Acesse</a></p>
           </div>
         </form>
+        <div>
+          <img class="banner" src="../assets/images/Banner-Signup.svg" alt="" />
+        </div>
       </div>
     </main>
 

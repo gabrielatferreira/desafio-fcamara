@@ -152,6 +152,7 @@ span {
 /* make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker*/
 input[type='date']::-webkit-calendar-picker-indicator {
   opacity: 0;
+  cursor: pointer;
 }
 
 /* adjust increase/decrease button */
@@ -363,6 +364,7 @@ input[type='radio'] {
   background-position: 95% center;
   background-repeat: no-repeat;
   background-size: 24px;
+  cursor: pointer;
 }
 
 textarea {
