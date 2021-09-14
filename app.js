@@ -39,13 +39,13 @@ app.post("/login", [], async (req, res) => {
 
     const Usuario = mongoose.model('usuarios', UsuarioSchema);
 
-    const existeUsuario = await Usuario.find({email: req.body.email, senha: req.body.senha }).exec();
+    const existeUsuario = await Usuario.find({ email: req.body.email, senha: req.body.senha }).exec();
     if(existeUsuario.length == 0) return res.json("Usuário inválido, verifique email e senha!")
 
     var response = {
-        email: existeUsuario.email,
-        id: existeUsuario._id,
-        nome: existeUsuario.nome,
+        email: existeUsuario[0].email,
+        id: existeUsuario[0]._id,
+        nome: existeUsuario[0].nome,
         token: "true",
         message: "Usuário logado"
     }

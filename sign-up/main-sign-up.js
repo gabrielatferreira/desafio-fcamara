@@ -38,6 +38,7 @@ const userAction = async () => {
   console.log(myJson);
   limparCampos();
   sucesso();
+  acessoLogin();
 }
 
 const limparCampos = () => {
@@ -72,4 +73,8 @@ const checkboxValidation = () => {
       return true;
   }
   return false;
+}
+
+const acessoLogin = () => {
+  document.location.href = "../login/index-login.html";
 }

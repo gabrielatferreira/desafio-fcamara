@@ -35,7 +35,11 @@ const userActionLogin = async () => {
   const myJson = await response.json();
   console.log(myJson);
   if(myJson.token) {
-    acessoLogin();
+    localStorage.setItem("nome", myJson.nome);
+    //acessoLogin();
+
+  } else {
+    alert(myJson);
   }
 }
 
