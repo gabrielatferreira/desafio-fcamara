@@ -213,7 +213,6 @@ button:active {
 #header {
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 2rem;
-  display: flex;
   height: var(--header-height);
 
   position: fixed;
@@ -227,19 +226,14 @@ button:active {
 #header .container {
   display: block;
   text-align: center;
+  align-items: center;
   padding-top: 2rem;
+  margin: auto;
 }
 
 #header.scroll {
   /*quando quiser mudar a cor durante scroll*/
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
-}
-
-/*=========  NAVIGATION  ========= */
-nav {
-  height: var(--header-height);
-  display: flex;
-  align-items: center;
 }
 
 /* Responsive */
@@ -255,16 +249,11 @@ nav {
 
   .login-container {
     display: flex;
-    align-items: center;
     justify-content: center;
   }
 
   form {
     margin-right: 3.625rem;
-  }
-
-  button {
-    height: 3.125rem;
   }
 
   img {
@@ -278,7 +267,7 @@ nav {
 }
 
 /* large devices: 1023 > */
-/* large devices: 992 > */
+/* large devices: 768 > */
 @media (min-width: 768px) {
   :root {
     --title-font-size: 2.25rem;
