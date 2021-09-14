@@ -50,6 +50,8 @@ img {
   --body-font-size: 1rem;
 
   --body-font: 'Metropolis';
+  --body-font-semibold: 'Metropolis-semibold';
+  --body-font-bold: 'Metropolis-bold';
 }
 
 /*======= FONTS ============================*/
@@ -62,19 +64,18 @@ img {
 }
 
 @font-face {
-  font-family: 'metropolis';
+  font-family: 'metropolis-semibold';
   src: url(../assets/fonts/Metropolis-SemiBold.otf);
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 @font-face {
-  font-family: 'metropolis';
+  font-family: 'metropolis-bold';
   src: url(../assets/fonts/Metropolis-Bold.otf);
   font-style: normal;
   font-weight: 700;
 }
-
 /*========= BASE ========*/
 
 html {
@@ -89,133 +90,25 @@ body {
   margin-top: 8rem;
 }
 
-.booking-container {
-  display: flex;
-}
-
 h1 {
-  font: 700 var(--title-font-size) var(--body-font);
+  font: 700 var(--title-font-size) var(--body-font-bold);
   color: var(--title-color);
   text-align: left;
-  margin-bottom: 3.1875rem;
-}
-
-h1.acess {
-  width: 220px;
-}
-
-h3 {
-  font: 700 var(--subtitle-font-size) var(--body-font);
-  color: var(--text-color);
-  margin-bottom: 2rem;
 }
 
 p {
-  font: 200 var(--label-font-size) var(--body-font);
-  color: var(--text-color-light);
-  margin-bottom: 2rem;
+  font: 400 var(--subtitle-font-size) var(--body-font);
+  color: var(--text-color-active);
   width: 200px;
-  line-height: 1.3rem;
-}
-
-.links {
-  color: var(--base-color);
-}
-
-label {
-  font: 400 var(--input-font-size) var(--body-font);
-  color: var(--text-color-light);
-}
-
-span {
-  font: 400 var(--input-font-size) var(--body-font);
-}
-
-.terms {
-  display: flex;
-  flex-direction: row;
-  vertical-align: middle;
-}
-
-input {
-  width: 100%;
-  height: 3rem;
-  padding: 1rem;
-  max-width: 24rem;
-  font: 400 var(--label-font-size) var(--body-font);
-  color: var(--input-color);
-  background-color: var(--body-color);
-  border-radius: 10px;
-  border-color: var(--body-color-light);
-  border-width: 1px;
-}
-
-input[type='checkbox'] {
-  height: 1rem;
-  width: 1rem;
-  align-content: flex-start;
-  margin-right: 1rem;
 }
 
 .title {
-  font: 700 var(--title-font-size) var(--title-font);
-  color: var(--text-color);
+  font: 400 var(--subtitle-font-size) var(--body-font);
+  color: var(--text-color-active);
   -webkit-font-smoothing: auto;
 }
 
-/* Datepicker*/
-
-.calendar {
-  display: inline-block;
-}
-
-#calendar-icon {
-  background: var(--body-color);
-  color: var(--text-color-light);
-  border-radius: 0.5rem;
-  border-color: var(--body-color-light);
-  border-width: 1px;
-  font: 400 var(--input-font-size) var(--body-font);
-  height: 3rem;
-  padding: 1rem;
-  width: 100%;
-  max-width: 24rem;
-  background-image: url(../assets/icons/Type-Calendar-gray.svg);
-  background-position: 94% center;
-  background-repeat: no-repeat;
-  background-size: 16px;
-}
-
-/* make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker*/
-input[type='date']::-webkit-calendar-picker-indicator {
-  opacity: 0;
-}
-
-/* adjust increase/decrease button */
-input[type='date']::-webkit-inner-spin-button {
-  z-index: 1;
-}
-
-/* adjust clear button */
-input[type='date']::-webkit-clear-button {
-  z-index: 1;
-}
-
-.backbutton {
-  display: flex;
-  align-items: flex-start;
-}
-
-.icon-TypeBack-Left {
-  width: 40px;
-  border: none;
-  background-color: var(--body-color);
-  color: var(--base-color);
-  padding-right: 5rem;
-}
-
 button {
-  max-width: 24rem;
   background-color: var(--base-color-second);
   color: var(--body-color);
   height: 3rem;
@@ -223,6 +116,9 @@ button {
   align-items: center;
   justify-content: center;
   width: 100%;
+  max-width: 24rem;
+  margin-left: auto;
+  margin-right: auto;
   padding: 1rem;
   font: 400 var(--body-font-size) var(--body-font);
   border-radius: 10px;
@@ -243,65 +139,12 @@ button:active {
     inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
 
-.unity {
-  display: flex;
-  flex-direction: row;
-  vertical-align: baseline;
-}
-
-.unidade-negocio {
-  margin-left: 1rem;
-  padding-top: 0.22rem;
-}
-
-/* Hide the browser's default radio button */
-input[type='radio'] {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  margin: 0.3rem 0px 0px 0.3rem;
-}
-
-/* Create a custom radio button */
-.checkmark {
-  display: flex;
-  flex-direction: column;
-  height: 20px;
-  width: 20px;
-  background-color: var(--body-color);
-  border-radius: 50%;
-  border: 2px solid #949495;
-}
-
-/* Create the indicator (the dot/circle - hidden when not checked) */
-.checkmark:after {
-  content: '';
-  position: absolute;
-  display: none;
-}
-
-/* When the radio button is checked, add a blue background */
-.container input:checked ~ .checkmark {
-  background-color: #ff4400;
-  border: none;
-}
-
-/* Show the indicator (dot/circle) when checked */
-.container input:checked ~ .checkmark:after {
-  display: block;
-  width: 10px;
-  height: 10px;
-}
-
-/* Style the indicator (dot/circle) */
-.container .checkmark:after {
-  border-radius: 50%;
-  background: #ff4400;
-  margin: 2px 2px;
-  border: 3px solid white;
-}
-
 /*======= LAYOUT ========*/
+
+.logo-op {
+  display: flex;
+  align-items: center;
+}
 
 .logo {
   font: 400 var(--body-font-size) var(--body-font);
@@ -309,7 +152,12 @@ input[type='radio'] {
 }
 
 .logo strong {
-  font: 900 var(--body-font-size) var(--body-font);
+  font: 700 var(--body-font-size) var(--body-font-bold);
+}
+
+.icon-TypeLogout {
+  display: none;
+  visibility: hidden;
 }
 
 .container {
@@ -318,75 +166,25 @@ input[type='radio'] {
   margin-bottom: 32px;
 }
 
+.container-image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+  padding-top: 1rem;
+}
+
+.sucess-container {
+  max-width: 30rem;
+}
+
 .grid {
   display: grid;
   gap: 1.5rem;
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  max-width: 24rem;
-  margin-bottom: 1.5rem;
-  background: var(--body-color);
-  border-radius: 0.5rem;
-  height: 4.5rem;
-  padding: 1rem;
-  border: none;
-}
-
-.type-label {
-  display: inline;
-  margin-right: 20px;
-  color: var(--text-color-light);
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.col {
-  flex: 1;
-  display: block;
-}
-
 .icon-Size-32px {
   color: var(--base-color);
-}
-
-.container select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  position: relative;
-  height: 3rem;
-  max-width: 24rem;
-  width: 100%;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  border-color: var(--body-color-light);
-  font: 400 var(--input-font-size) var(--body-font);
-  color: var(--text-color-light);
-  background: var(--body-color);
-  background-image: url(../assets/icons/chevron-down-gray.svg);
-  background-position: 95% center;
-  background-repeat: no-repeat;
-  background-size: 24px;
-}
-
-textarea {
-  max-width: 24rem;
-  background: var(--body-color);
-  border-width: 1px;
-  border-radius: 0.5rem;
-  border-color: var(--body-color-light);
-  font: 400 var(--input-font-size) var(--body-font);
-  color: var(--text-color-light);
-  width: 100%;
-  height: 5rem;
-  padding: 1rem;
+  padding-right: 7px;
 }
 
 #header {
@@ -428,7 +226,9 @@ nav ul li a {
 
 nav ul li a:hover,
 nav ul li a.active {
+  font-weight: 600;
   color: var(--base-color);
+  transform: translateY(-2px);
 }
 
 nav ul li a::after {
@@ -520,6 +320,11 @@ nav.show div.icon-TypeX {
 /*========= MEDIA QUERIES ======================*/
 /* extra large devices: 1200 > */
 @media (min-width: 1200px) {
+  :root {
+    --title-font-size: 2.625rem;
+    --label-font-size: 1rem;
+    --input-font-size: 0.875rem;
+  }
   /* reusable classes */
   .container {
     max-width: 1120px;
@@ -527,27 +332,42 @@ nav.show div.icon-TypeX {
     margin-right: auto;
   }
 
-  .cards {
+  main {
+    display: flex;
+    justify-content: center;
+    max-width: 1120px;
     margin-left: auto;
     margin-right: auto;
-    max-width: 1120px;
   }
 
-  .section {
-    padding: 10rem 0;
+  form {
+    margin-right: 13.5rem;
+  }
+
+  .text {
+    display: flex;
+    justify-content: center;
   }
 
   img {
+    height: 22.26rem;
+    width: 26.55rem;
+  }
+
+  .icon-TypeBack-Left {
+    padding-right: 4rem;
+  }
+
+  .icon-TypeLogout {
     display: flex;
     opacity: 1;
     visibility: visible;
-    height: 1099px;
-    width: 484px;
-    margin-top: -47px;
+    color: var(--text-color);
   }
 
-  button {
-    height: 3.125rem;
+  #leave {
+    display: none;
+    visibility: hidden;
   }
 
   /* navigation */
@@ -563,7 +383,7 @@ nav.show div.icon-TypeX {
   }
 
   nav .menu ul li a.title {
-    font: 400 1rem var(--body-font);
+    font: 400 1rem var(--body-font-bold);
     -webkit-font-smoothing: antialiased;
   }
 
@@ -577,21 +397,11 @@ nav.show div.icon-TypeX {
   }
 }
 
-/* large devices: 1023 > */
-/* large devices: 992 > */
-@media (min-width: 992px) {
-  :root {
-    --title-font-size: 2.25rem;
-    --subtitle-font-size: 1.125rem;
-  }
-
-  img {
-    display: flex;
-    align-items: flex-end;
-    opacity: 1;
-    visibility: visible;
-    height: 1099px;
-    width: 484px;
-    margin-left: 150px;
+/* large devices: tablet > */
+@media only screen and (min-width: 425px) and (max-device-width: 1199px) {
+  .sucess-container {
+    max-width: 27rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

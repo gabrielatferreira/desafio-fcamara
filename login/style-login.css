@@ -91,7 +91,7 @@ h1 {
 }
 
 h1.acess {
-  width: 180px;
+  width: 250px;
 }
 
 p {
@@ -207,11 +207,13 @@ button:active {
 .icon-Size-32px {
   font: 600 var(--label-font-size) var(--body-font-semibold);
   color: var(--base-color);
+  padding-right: 7px;
 }
 
 #header {
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 2rem;
+  display: flex;
   height: var(--header-height);
 
   position: fixed;
@@ -226,7 +228,6 @@ button:active {
   display: block;
   text-align: center;
   align-items: center;
-  padding-top: 2rem;
   margin: auto;
 }
 
@@ -239,6 +240,12 @@ button:active {
 /*========= MEDIA QUERIES ======================*/
 /* extra large devices: 1200 > */
 @media (min-width: 1200px) {
+  :root {
+    --title-font-size: 2.625rem;
+    --subtitle-font-size: 2rem;
+    --label-font-size: 1rem;
+    --input-font-size: 0.875rem;
+  }
   /* reusable classes */
   .container {
     max-width: 1120px;
@@ -251,8 +258,13 @@ button:active {
     justify-content: center;
   }
 
+  h1.acess {
+    width: 400px;
+  }
+
   form {
-    margin-right: 3.625rem;
+    max-width: 1120px;
+    margin-right: 4rem;
   }
 
   img {
@@ -268,11 +280,6 @@ button:active {
 /* large devices: 1023 > */
 /* large devices: 768 > */
 @media only screen and (min-width: 425px) and (max-device-width: 1199px) {
-  :root {
-    --title-font-size: 2.25rem;
-    --subtitle-font-size: 1.125rem;
-  }
-
   nav.container {
     display: flex;
     max-width: 125px;

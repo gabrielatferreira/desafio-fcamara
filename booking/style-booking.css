@@ -87,15 +87,11 @@ body {
   margin-top: 8rem;
 }
 
-.booking-container {
-  display: flex;
-}
-
 h2 {
-  font: 700 var(--subtitle-font-size) var(--body-font);
+  font: 600 var(--subtitle-font-size) var(--body-font-semibold);
   color: var(--title-color);
   text-align: center;
-  margin-bottom: 3.1875rem;
+  margin-bottom: 1rem;
 }
 
 h3 {
@@ -112,7 +108,7 @@ p {
 }
 
 label {
-  font: 400 var(--input-font-size) var(--body-font);
+  font: 400 var(--label-font-size) var(--body-font);
   color: var(--text-color-light);
 }
 
@@ -138,7 +134,7 @@ span {
   border-radius: 0.5rem;
   border-color: var(--body-color-light);
   border-width: 1px;
-  font: 400 var(--input-font-size) var(--body-font);
+  font: 400 var(--label-font-size) var(--body-font);
   height: 3rem;
   padding: 1rem;
   width: 100%;
@@ -357,7 +353,7 @@ input[type='radio'] {
   padding: 1rem;
   border-radius: 0.5rem;
   border-color: var(--body-color-light);
-  font: 400 var(--input-font-size) var(--body-font);
+  font: 400 var(--label-font-size) var(--body-font);
   color: var(--text-color-light);
   background: var(--body-color);
   background-image: url(../assets/icons/chevron-down-gray.svg);
@@ -513,6 +509,11 @@ nav.show div.icon-TypeX {
 /*========= MEDIA QUERIES ======================*/
 /* extra large devices: 1200 > */
 @media (min-width: 1200px) {
+  :root {
+    --subtitle-font-size: 2rem;
+    --label-font-size: 1rem;
+    --input-font-size: 0.875rem;
+  }
   /* reusable classes */
   .container {
     max-width: 1120px;
@@ -526,7 +527,11 @@ nav.show div.icon-TypeX {
   }
 
   form {
-    margin-right: 13.5rem;
+    margin-right: 11rem;
+  }
+
+  section.section {
+    padding-left: 7rem;
   }
 
   .icon-TypeLogout {
@@ -579,15 +584,14 @@ nav.show div.icon-TypeX {
 
 /* large devices: tablet > */
 @media only screen and (min-width: 425px) and (max-device-width: 1199px) {
-  :root {
-    --title-font-size: 2.25rem;
-    --subtitle-font-size: 1.125rem;
-  }
-
   .booking-container {
     display: flex;
-    max-width: 24rem;
+    max-width: 28rem;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .icon-TypeBack-Left {
+    padding-right: 6.3rem;
   }
 }

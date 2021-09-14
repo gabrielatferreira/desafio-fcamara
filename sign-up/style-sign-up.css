@@ -91,7 +91,7 @@ h1 {
 }
 
 h1.acess {
-  width: 180px;
+  width: 200px;
 }
 
 p {
@@ -241,6 +241,11 @@ input[type='checkbox'] {
 
 /*======= LAYOUT ========*/
 
+.logo-op {
+  display: flex;
+  align-items: center;
+}
+
 .logo {
   font: 400 var(--body-font-size) var(--body-font);
   color: var(--title-color);
@@ -310,6 +315,7 @@ input[type='checkbox'] {
 .icon-Size-32px {
   font: 600 var(--label-font-size) var(--body-font-semibold);
   color: var(--base-color);
+  padding-right: 7px;
 }
 
 .container select {
@@ -375,6 +381,12 @@ textarea {
 /*========= MEDIA QUERIES ======================*/
 /* extra large devices: 1200 > */
 @media (min-width: 1200px) {
+  :root {
+    --title-font-size: 2.625rem;
+    --subtitle-font-size: 2rem;
+    --label-font-size: 1rem;
+    --input-font-size: 0.875rem;
+  }
   /* reusable classes */
   .container {
     max-width: 1120px;
@@ -385,6 +397,10 @@ textarea {
   .sign-up-container {
     display: flex;
     justify-content: center;
+  }
+
+  h1.acess {
+    width: 24rem;
   }
 
   form {
@@ -404,11 +420,6 @@ textarea {
 /* large devices: 1023 > */
 /* large devices: 768 > */
 @media only screen and (min-width: 425px) and (max-device-width: 1199px) {
-  :root {
-    --title-font-size: 2.25rem;
-    --subtitle-font-size: 1.125rem;
-  }
-
   nav.container {
     display: flex;
     max-width: 125px;

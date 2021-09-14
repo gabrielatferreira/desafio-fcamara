@@ -90,7 +90,7 @@ h1 {
 }
 
 h1.acess {
-  width: 300px;
+  width: 390px;
 }
 
 h3 {
@@ -111,7 +111,7 @@ p {
 }
 
 button {
-  width: 24rem;
+  width: 27rem;
   background-color: var(--base-color-second);
   color: var(--body-color);
   height: 4.5rem;
@@ -120,7 +120,7 @@ button {
   justify-content: center;
   width: 100%;
   padding: 1rem;
-  font: 700 var(--subtitle-font-size) var(--body-font);
+  font: 700 var(--body-font-size) var(--body-font-bold);
   border-radius: 10px;
   border-color: var(--body-color-light);
   border-width: 1px;
@@ -158,15 +158,15 @@ button:active {
   font: 700 var(--body-font-size) var(--body-font-bold);
 }
 
-.icon-TypeLogout {
-  display: none;
-  visibility: hidden;
-}
-
 .icon-Size-32px {
   font: 600 var(--body-font-size) var(--body-font-semibold);
   color: var(--base-color);
   padding-right: 7px;
+}
+
+.icon-TypeLogout {
+  display: none;
+  visibility: hidden;
 }
 
 .container {
@@ -313,6 +313,12 @@ nav.show div.icon-TypeX {
 /*========= MEDIA QUERIES ======================*/
 /* extra large devices: 1200 > */
 @media (min-width: 1200px) {
+  :root {
+    --title-font-size: 2.625rem;
+    --subtitle-font-size: 2rem;
+    --label-font-size: 1rem;
+    --input-font-size: 0.875rem;
+  }
   /* reusable classes */
 
   nav.container {
@@ -370,17 +376,12 @@ nav.show div.icon-TypeX {
 
 /* large devices: tablet > */
 @media only screen and (min-width: 425px) and (max-device-width: 1199px) {
-  :root {
-    --title-font-size: 2.25rem;
-    --subtitle-font-size: 1.125rem;
-  }
-
   nav.show .menu {
     width: 40%;
   }
 
   .welcome-container {
-    max-width: 24rem;
+    max-width: 27rem;
     margin-left: auto;
     margin-right: auto;
   }
