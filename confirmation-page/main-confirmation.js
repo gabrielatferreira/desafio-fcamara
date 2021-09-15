@@ -50,7 +50,7 @@ const onClickConfirmarReserva = async () => {
     headers: {
       'Content-Type': 'application/json'
     }
-});
+  });
 
   const myJson = await response.json();
   if(myJson.id !== null && myJson.id !== undefined && myJson.id !== "") {

@@ -36,6 +36,14 @@ const userAction = async () => {
   });
   const myJson = await response.json();
   console.log(myJson);
+  if(myJson.id !== null && myJson.id !== undefined && myJson.id !== "") {
+    localStorage.setItem("nome", myJson.nome);
+    localStorage.setItem("email", myJson.email);
+  } else {
+    alert(myJson);
+    return;
+  }
+
   limparCampos();
   sucesso();
   acessoLogin();

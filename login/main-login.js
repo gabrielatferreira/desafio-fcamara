@@ -39,7 +39,6 @@ const userActionLogin = async () => {
     localStorage.setItem("nome", myJson.nome);
     localStorage.setItem("email", myJson.email);
     acessoLogin();
-
   } else {
     alert(myJson);
   }
