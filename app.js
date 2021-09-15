@@ -19,17 +19,11 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "booking")));
-app.use(express.static(path.join(__dirname, "confirmation-page")));
-app.use(express.static(path.join(__dirname, "login")));
-app.use(express.static(path.join(__dirname, "sign-up")));
-app.use(express.static(path.join(__dirname, "sucess-booking")));
-app.use(express.static(path.join(__dirname, "welcome")));
+
 
 /* ROTAS */
 
 app.post("/login", [], async (req, res) => {
-    res.sendFile(path.join(__dirname, 'login', 'index-login.html'));
     if (req.body === null || req.body === undefined || Object.keys(req.body).length === 0) 
         return res.json("Necessário passar um corpo na mensagem com email e senha!")
 
