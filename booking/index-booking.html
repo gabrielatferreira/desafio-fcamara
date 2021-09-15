@@ -31,10 +31,10 @@
         <!-- menu -->
         <div class="menu">
           <ul class="grid">
-            <li><a class="title" href="#">Início</a></li>
+            <li><a class="title" href="../welcome/welcome.html">Início</a></li>
             <li>
-              <a class="title" href="#" id="leave">Sair</a>
-              <a class="icon-TypeLogout" href="#"></a>
+              <a class="title" href="../login/index-login.html" id="leave">Sair</a>
+              <a class="icon-TypeLogout" href="../login/index-login.html"></a>
             </li>
           </ul>
         </div>
@@ -49,7 +49,7 @@
         <div class="form">
           <div class="container backbutton">
             <h2>
-              <a href="#"><i class="icon-TypeBack-Left"></i></a>Agendamento
+              <a href="../welcome/welcome.html"><i class="icon-TypeBack-Left"></i></a>Agendamento
             </h2>
           </div>
 
@@ -73,103 +73,7 @@
               <p>Para qual estação de trabalho?</p>
             </div>
 
-            <section class="cards">
-              <div class="container">
-                <div class="card">
-                  <div class="row">
-                    <div class="col">
-                      <h3 class="card-title">
-                        <strong>Antonio Meghelleti</strong> - Sala de Reunião
-                      </h3>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      <div class="type-label">
-                        <i class="icon-TypeUser"></i>
-                        <span>30 Pessoas</span>
-                      </div>
-                      <div class="type-label">
-                        <i class="icon-TypeCheck"></i>
-                        <span>16 Reservas</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="container">
-                <div class="card">
-                  <div class="row">
-                    <div class="col">
-                      <h3 class="card-title">
-                        <strong>Sun Tzu</strong> - Sala de Reunião
-                      </h3>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      <div class="type-label">
-                        <i class="icon-TypeUser"></i>
-                        <span>30 Pessoas</span>
-                      </div>
-                      <div class="type-label">
-                        <i class="icon-TypeCheck"></i>
-                        <span class="booking">06 Reservas</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="container">
-                <div class="card">
-                  <div class="row">
-                    <div class="col">
-                      <h3 class="card-title">
-                        <strong>Maquiavel</strong> - Sala de Reunião
-                      </h3>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      <div class="type-label">
-                        <i class="icon-TypeUser"></i>
-                        <span>30 Pessoas</span>
-                      </div>
-                      <div class="type-label">
-                        <i class="icon-TypeCheck"></i>
-                        <span class="booking">14 Reservas</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="container">
-                <div class="card">
-                  <div class="row">
-                    <div class="col">
-                      <h3 class="card-title">
-                        <strong>Tarsila do Amaral</strong> - Sala de Reunião
-                      </h3>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      <div class="type-label">
-                        <i class="icon-TypeUser"></i>
-                        <span>30 Pessoas</span>
-                      </div>
-                      <div class="type-label">
-                        <i class="icon-TypeCheck"></i>
-                        <span class="booking">26 Reservas</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+            <section id="cards" class="cards"></section>
 
             <div class="container">
               <p>Deseja realizar alguma solicitação de material?</p>
@@ -177,7 +81,7 @@
             </div>
 
             <div class="container">
-              <button>Confirmar</button>
+              <button onclick="confirmarReserva();">Confirmar</button>
             </div>
           </div>
         </div>

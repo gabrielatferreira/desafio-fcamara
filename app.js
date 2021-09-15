@@ -385,6 +385,10 @@ app.post("/reservas", [], async (req, res) => {
     if(quantidade_de_lugares == null || quantidade_de_lugares == undefined || quantidade_de_lugares == 0) {
         return res.json("Não é possível reservar, pois não foi informado a quantidade de lugares nesta estação")
     }
+
+    if(reservas.length === quantidade_lugares) {
+        return res.json("não há mais lugares disponíveis para reservar, tente outro dia!")
+    }
     
     const reserva = await Reserva.create(req.body);
 

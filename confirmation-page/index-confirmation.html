@@ -24,10 +24,10 @@
         <!-- menu -->
         <div class="menu">
           <ul class="grid">
-            <li><a class="title" href="#">Início</a></li>
+            <li><a class="title" href="../welcome/welcome.html">Início</a></li>
             <li>
-              <a class="title" href="#" id="leave">Sair</a>
-              <a class="icon-TypeLogout" href="#"></a>
+              <a class="title" href="../login/index-login.html" id="leave">Sair</a>
+              <a class="icon-TypeLogout" href="../login/index-login.html"></a>
             </li>
           </ul>
         </div>
@@ -41,7 +41,7 @@
       <section class="confirmation-container">
         <div class="backbutton">
           <h2>
-            <a href="#"><i class="icon-TypeBack-Left"></i></a>Confirmação
+            <a href="../booking/index-booking.html"><i class="icon-TypeBack-Left"></i></a>Confirmação
           </h2>
         </div>
 
@@ -52,7 +52,7 @@
               <h3>Unidade</h3>
             </div>
             <div>
-              <p>São Paulo</p>
+              <p id="unidade_negocio"></p>
             </div>
             <div>
               <div class="information">
@@ -60,7 +60,7 @@
                 <h3>Data</h3>
               </div>
               <div>
-                <p>16/09/2021</p>
+                <p id="data_reserva"></p>
               </div>
             </div>
 
@@ -70,7 +70,7 @@
                 <h3>Estação</h3>
               </div>
               <div>
-                <p>Antonio Meghelleti - Sala de Reunião</p>
+                <p id="estacao_trabalho"></p>
               </div>
             </div>
             <div>
@@ -79,9 +79,7 @@
                 <h3>Solicitação</h3>
               </div>
               <div>
-                <p>
-                  Gostaria de solicitar alguns post-its para conduzir uma
-                  dinâmica
+                <p id="solicitacao_material">
                 </p>
               </div>
             </div>
@@ -89,7 +87,7 @@
         </div>
 
         <div>
-          <button>Confirmar</button>
+          <button onclick="onClickConfirmarReserva();">Confirmar</button>
         </div>
       </section>
     </main>
