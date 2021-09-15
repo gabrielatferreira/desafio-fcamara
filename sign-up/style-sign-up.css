@@ -101,13 +101,13 @@ p {
   margin-bottom: 8.75rem;
 }
 
-.link-terms {
+[target='_blank'] {
   font: 400 var(--input-font-size) var(--body-font-bold);
   color: var(--text-color);
   text-decoration: underline;
 }
 
-.link-acess {
+p a.links {
   font: 400 var(--label-font-size) var(--body-font-bold);
   color: var(--base-color);
 }
@@ -189,7 +189,7 @@ input[type='checkbox'] {
   position: absolute;
   opacity: 0;
   cursor: pointer;
-  color: green;
+  color: var(--base-color);
   height: 0;
   width: 0;
 }
@@ -232,7 +232,7 @@ input[type='checkbox'] {
   width: 3px;
   height: 8px;
   border: solid white;
-  border-width: 0 1.5px 1.5px 0;
+  border-width: 0 2px 2px 0;
   border-radius: 1px;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -394,7 +394,7 @@ textarea {
     margin-right: auto;
   }
 
-  .sign-up-container {
+  #sign-up-container {
     display: flex;
     justify-content: center;
   }
@@ -403,7 +403,7 @@ textarea {
     width: 24rem;
   }
 
-  form {
+  .form {
     margin-right: 3.625rem;
   }
 
@@ -432,7 +432,7 @@ textarea {
     margin-right: auto;
   }
 
-  .sign-up-container {
+  #sign-up-container {
     display: flex;
     max-width: 24rem;
     margin-left: auto;

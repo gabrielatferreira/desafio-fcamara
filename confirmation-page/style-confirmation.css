@@ -126,8 +126,8 @@ p {
 
 button {
   max-width: 24rem;
-  background-color: var(--button-color);
-  color: var(--text-color-light);
+  background-color: var(--base-color-second);
+  color: var(--body-color);
   height: 3rem;
   display: inline-flex;
   align-items: center;
@@ -365,10 +365,6 @@ nav.show div.icon-TypeX {
     margin-right: auto;
   }
 
-  form {
-    margin-right: 13.5rem;
-  }
-
   .icon-TypeBack-Left {
     padding-right: 4rem;
   }
@@ -383,15 +379,6 @@ nav.show div.icon-TypeX {
   #leave {
     display: none;
     visibility: hidden;
-  }
-
-  img {
-    display: flex;
-    right: 0;
-    opacity: 1;
-    visibility: visible;
-    height: 68.6875rem;
-    width: 30.25rem;
   }
 
   /* navigation */

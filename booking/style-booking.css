@@ -176,8 +176,8 @@ input[type='date']::-webkit-clear-button {
 
 button {
   max-width: 24rem;
-  background-color: var(--button-color);
-  color: var(--text-color-light);
+  background-color: var(--base-color-second);
+  color: var(--body-color);
   height: 3rem;
   display: inline-flex;
   align-items: center;
@@ -527,11 +527,11 @@ nav.show div.icon-TypeX {
     justify-content: center;
   }
 
-  form {
+  .form {
     margin-right: 11rem;
   }
 
-  section.section {
+  .section {
     padding-left: 7rem;
   }
 
