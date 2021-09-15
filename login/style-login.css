@@ -161,14 +161,17 @@ button:active {
   max-width: 24rem;
 }
 
-#first-acess {
+a.create-account {
+  display: flex;
+  justify-content: center;
   font: 400 var(--label-font-size) var(--body-font);
-  text-align: center;
+  color: var(--label-color);
 }
 
-#first-acess .create-account {
+a span {
   font: 700 var(--label-font-size) var(--body-font-bold);
   color: var(--base-color);
+  margin-left: 5px;
 }
 
 /*======= LAYOUT ========*/
@@ -190,7 +193,7 @@ button:active {
   max-width: 24rem;
 }
 
-.login-container {
+#login-container {
   display: flex;
   align-items: center;
 }
@@ -253,16 +256,16 @@ button:active {
     margin-right: auto;
   }
 
-  .login-container {
+  #login-container {
     display: flex;
     justify-content: center;
   }
 
   h1.acess {
-    width: 400px;
+    width: 24rem;
   }
 
-  form {
+  .form {
     max-width: 1120px;
     margin-right: 4rem;
   }
@@ -292,7 +295,7 @@ button:active {
     margin-right: auto;
   }
 
-  .login-container {
+  #login-container {
     display: flex;
     max-width: 24rem;
     margin-left: auto;
