@@ -90,7 +90,8 @@ h1 {
 }
 
 h1.acess {
-  width: 390px;
+  width: 311px;
+  max-width: 350px;
 }
 
 h3 {
@@ -111,7 +112,6 @@ p {
 }
 
 button {
-  width: 27rem;
   background-color: var(--base-color-second);
   color: var(--body-color);
   height: 4.5rem;
@@ -303,12 +303,6 @@ nav.show div.icon-TypeX {
   top: 1.7rem;
 }
 
-/*======== Section =========*/
-
-.col {
-  display: flex;
-}
-
 /* Responsive */
 /*========= MEDIA QUERIES ======================*/
 /* extra large devices: 1200 > */
@@ -380,8 +374,13 @@ nav.show div.icon-TypeX {
     width: 40%;
   }
 
+  h1.acess {
+    width: 320px;
+    max-width: 350px;
+  }
+
   .welcome-container {
-    max-width: 27rem;
+    max-width: 24rem;
     margin-left: auto;
     margin-right: auto;
   }

@@ -189,7 +189,7 @@ input[type='checkbox'] {
   position: absolute;
   opacity: 0;
   cursor: pointer;
-  color: green;
+  color: var(--base-color);
   height: 0;
   width: 0;
 }
