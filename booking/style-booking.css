@@ -313,10 +313,11 @@ input[type='radio'] {
   cursor: pointer;
 }
 
-.card:active {
-  background-color: var(--card-background);
-  color: var(--base-color);
-  border: none;
+.active {
+  box-shadow: 0 3px 10px 0 #aaa;
+  border-color: rgba(148, 148, 149, 1);
+  transform: translateY(-5px);
+  cursor: pointer;
 }
 
 .type-label {
