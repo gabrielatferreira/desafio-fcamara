@@ -35,3 +35,38 @@ function changeHeaderWhenScrool() {
 window.addEventListener('scroll', function () {
   changeHeaderWhenScrool()
 })
+
+const onClickConfirmarReserva = async () => {
+  console.log(localStorage.getItem('id_estacao_trabalho'))
+  const response = await fetch('http://orangepoint.herokuapp.com/reservas', {
+    method: 'POST',
+    body: JSON.stringify({
+      data_reserva: localStorage.getItem('data_reserva'),
+      id_estacao_trabalho: localStorage.getItem('id_estacao_trabalho'),
+      id_unidade_negocio: localStorage.getItem('id_unidade_negocio'),
+      solicitacao_material: localStorage.getItem('solicitacao_material'),
+      id_usuario: localStorage.getItem('id'),
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+});
+
+  const myJson = await response.json();
+  if(myJson.id !== null && myJson.id !== undefined && myJson.id !== "") {
+    document.location.href = "../sucess-booking/sucess.html";
+  } else {
+    alert(myJson);
+  }
+}
+
+const preencherCamposConfirmacao = () => {
+  console.log("preencher campos");
+  console.log(localStorage.getItem('unidade_negocio'))
+  document.getElementById("unidade_negocio").innerHTML = localStorage.getItem('unidade_negocio');
+  document.getElementById("data_reserva").innerHTML = localStorage.getItem('data_reserva_formatada');
+  document.getElementById("estacao_trabalho").innerHTML = localStorage.getItem('estacao_trabalho');
+  document.getElementById("solicitacao_material").innerHTML = localStorage.getItem('solicitacao_material');
+}
+
+preencherCamposConfirmacao();
