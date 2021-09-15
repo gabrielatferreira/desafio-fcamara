@@ -242,7 +242,7 @@ app.get("/reservas", [], async (req, res) => {
     return res.json("Não há estações de trabalho cadastradas!");
 });
 
-app.get("/reservas/disponiveis", [], async (req, res) => {
+app.post("/reservas/disponiveis", [], async (req, res) => {
 
     if(req.body.data_reserva === null || req.body.data_reserva === undefined || req.body.data_reserva === "")
         return res.json("necessários preencher uma data para reserva")
