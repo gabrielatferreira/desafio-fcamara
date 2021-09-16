@@ -20,6 +20,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
 /* ROTAS */
 
 app.post("/login", [], async (req, res) => {
@@ -39,13 +40,13 @@ app.post("/login", [], async (req, res) => {
 
     const Usuario = mongoose.model('usuarios', UsuarioSchema);
 
-    const existeUsuario = await Usuario.find({email: req.body.email, senha: req.body.senha }).exec();
+    const existeUsuario = await Usuario.find({ email: req.body.email, senha: req.body.senha }).exec();
     if(existeUsuario.length == 0) return res.json("Usuário inválido, verifique email e senha!")
 
     var response = {
-        email: existeUsuario.email,
-        id: existeUsuario._id,
-        nome: existeUsuario.nome,
+        email: existeUsuario[0].email,
+        id: existeUsuario[0]._id,
+        nome: existeUsuario[0].nome,
         token: "true",
         message: "Usuário logado"
     }
@@ -103,6 +104,7 @@ app.get("/unidades_negocio", [], async (req, res) => {
         for(var index in unidadesNegocio) {
             responseList.push({
                 id: unidadesNegocio[index]._id,
+                unidade_negocio: unidadesNegocio[index].unidade_negocio
             })
         }
         return res.json(responseList);
@@ -241,7 +243,7 @@ app.get("/reservas", [], async (req, res) => {
     return res.json("Não há estações de trabalho cadastradas!");
 });
 
-app.get("/reservas/disponiveis", [], async (req, res) => {
+app.post("/reservas/disponiveis", [], async (req, res) => {
 
     if(req.body.data_reserva === null || req.body.data_reserva === undefined || req.body.data_reserva === "")
         return res.json("necessários preencher uma data para reserva")
@@ -303,7 +305,7 @@ app.get("/reservas/:id_usuario", [], async (req, res) => {
 
     const Reserva = mongoose.model('reserva',ReservaSchema);
 
-    const reservas = await Reserva.find({ id_usuario: req.body.id_usuario }).exec();
+    const reservas = await Reserva.find({ id_usuario: req.params.id_usuario }).exec();
     if(reservas.length > 0) {
         var responseList = [];
         
