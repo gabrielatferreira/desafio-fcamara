@@ -319,14 +319,14 @@ app.get("/reservas/:id_usuario", [], async (req, res) => {
         for(var index in reservas) {
 
             for(var ie in estacao_trabalho) {
-                if(reservas[index].id_estacao_trabalho === estacao_trabalho[ie]._id) {
+                if(reservas[index].id_estacao_trabalho === estacao_trabalho[ie]._id.toString()) {
                     nome_estacao_trabalho = estacao_trabalho[ie].estacao_trabalho;
                     break;
                 }
             }
 
             for(var iu in unidade_negocio) {
-                if(reservas[index].id_unidade_negocio === unidade_negocio[iu]._id) {
+                if(reservas[index].id_unidade_negocio === unidade_negocio[iu]._id.toString()) {
                     nome_unidade_negocio = unidade_negocio[iu].unidade_negocio;
                     break;
                 }
@@ -346,7 +346,7 @@ app.get("/reservas/:id_usuario", [], async (req, res) => {
         return res.json(responseList);
     }
 
-    return res.json("Não há estações de trabalho cadastradas!");
+    return res.json("Não há reservas cadastradas para este usuário!");
 });
 
 app.post("/reservas", [], async (req, res) => {
