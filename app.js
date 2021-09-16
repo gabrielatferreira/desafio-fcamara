@@ -308,8 +308,8 @@ app.get("/reservas/:id_usuario", [], async (req, res) => {
     const UnidadeNegocio = mongoose.model('reserva', UnidadeNegocioSchema);
 
     const reservas = await Reserva.find({ id_usuario: req.params.id_usuario }).exec();
-    const estacao_trabalho = await EstacaoTrabalho.find({}).exec();
-    const unidade_negocio = await UnidadeNegocio.find({}).exec();
+    const estacao_trabalho = await EstacaoTrabalho.find().exec();
+    const unidade_negocio = await UnidadeNegocio.find().exec();
     var nome_estacao_trabalho = "";
     var nome_unidade_negocio = "";
 
@@ -319,15 +319,17 @@ app.get("/reservas/:id_usuario", [], async (req, res) => {
         for(var index in reservas) {
 
             for(var ie in estacao_trabalho) {
-                if(reservas[index].id_estacao_trabalho === estacao_trabalho[ie]._id)
-                nome_estacao_trabalho = estacao_trabalho[ie].estacao_trabalho;
-                break;
+                if(reservas[index].id_estacao_trabalho === estacao_trabalho[ie]._id) {
+                    nome_estacao_trabalho = estacao_trabalho[ie].estacao_trabalho;
+                    break;
+                }
             }
 
             for(var iu in unidade_negocio) {
-                if(reservas[index].id_unidade_negocio === unidade_negocio[iu]._id)
-                nome_unidade_negocio = unidade_negocio[iu].unidade_negocio;
-                break;
+                if(reservas[index].id_unidade_negocio === unidade_negocio[iu]._id) {
+                    nome_unidade_negocio = unidade_negocio[iu].unidade_negocio;
+                    break;
+                }
             }
 
             responseList.push({
