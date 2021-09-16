@@ -304,8 +304,8 @@ app.get("/reservas/:id_usuario", [], async (req, res) => {
     await mongoose.connect(uri, { useNewUrlParser: true });
 
     const Reserva = mongoose.model('reserva',ReservaSchema);
-    const EstacaoTrabalho = mongoose.model('reserva', EstacaoTrabalhoSchema);
-    const UnidadeNegocio = mongoose.model('reserva', UnidadeNegocioSchema);
+    const EstacaoTrabalho = mongoose.model('estacao_trabalhos', EstacaoTrabalhoSchema);
+    const UnidadeNegocio = mongoose.model('unidade_negocios', UnidadeNegocioSchema);
 
     const reservas = await Reserva.find({ id_usuario: req.params.id_usuario }).exec();
     const estacao_trabalho = await EstacaoTrabalho.find().exec();
