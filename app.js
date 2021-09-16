@@ -305,7 +305,7 @@ app.get("/reservas/:id_usuario", [], async (req, res) => {
 
     const Reserva = mongoose.model('reserva',ReservaSchema);
 
-    const reservas = await Reserva.find({ id_usuario: req.body.id_usuario }).exec();
+    const reservas = await Reserva.find({ id_usuario: req.params.id_usuario }).exec();
     if(reservas.length > 0) {
         var responseList = [];
         
